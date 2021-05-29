@@ -173,7 +173,16 @@ L  = size(Z,2);
 % display(T_results_invariant_raw)
 
 %Produces latex for coefficients table
-create_coefficient_table(RESULTS, K, L)
+fprintf('\\begin{table}[ht]\n\\centering\n\\caption{Coefficient Estimates} \\label{table:coefficients}\n\\begin{tabular}{lcc}\n\\hline \\hline\n& Coefficient & Standard Errors \\\\ \n\\hline\n')
+for i = 1:K
+    T = strcat(RESULTS.time_varying_covs(i), ' & ',string(round(RESULTS.betahat(i), 3)),'&', string(round(RESULTS.se_betahat(i), 3)), '\\');
+    fprintf('%s\n', T)
+end 
+for i = 1:L
+    T = strcat(RESULTS.time_invariant_covs(i), ' & ',string(round(RESULTS.gammahat(i+1), 3)),'&', string(round(RESULTS.se_gammahat(i), 3)), '\\');
+    fprintf('%s\n', T)
+end 
+fprintf('\\hline \\end{tabular} \\end{table}')
 
 %% 6) Display results: Percentages
 
@@ -271,10 +280,59 @@ alpha_hat_sorted] = master_counter(NAMES_aux,...
 % display(CIs_sum) 
 
 % Produces latex for counterfactuals table
-create_table_unobs(NAMES_aux_sorted,CIs,CIs_sum)
+fprintf('\\begin{table}[h!]\\centering\\scriptsize\\tabcolsep=0.1cm\\caption{Counterfactual police homicides for 2013-2018: Unobserved Covariates} \\label{table:counterfactual_unobs}\\begin{tabular}{lrrrrrrrrrr}\\hline \\hline')
+T = '';
+for i = 1:size(NAMES_aux_sorted,1)
+    str = string(NAMES_aux_sorted(i,1));
+    str = lower(str);
+    expression = '(^|[\. ])\s*.';
+    replace = '${upper($0)}';
+    str = regexprep(str,expression,replace);
+    str = strsplit(str);
+    if str(1) == 'Los' | str(1) == 'Las' | str(1) == 'San'| str(1) == 'New'
+        T = append(T,strcat('&',strcat(str(1),{' '},str(2))));
+    else 
+        T = append(T,strcat('&',str(1)));
+    end
+end
+T = string(strcat(T, '\\'));
+fprintf('%s\n', T)
+E = '\hline';
+fprintf('%s\n', E)
+for i = 1:size(NAMES_aux_sorted,1)
+    T = '';
+    str = string(NAMES_aux_sorted(i,1));
+    str = lower(str);
+    expression = '(^|[\. ])\s*.';
+    replace = '${upper($0)}';
+    str = regexprep(str,expression,replace);
+    str = strsplit(str);
+    if str(1) == 'Los' | str(1) == 'Las' | str(1) == 'San'| str(1) == 'New'
+        T = append(T,strcat(str(1),{' '},str(2)));
+    else 
+        T = append(T, str(1));
+    end
+    for j = 1:size(NAMES_aux_sorted,1)
+        if i == j
+            T = append(T,strcat('&','\textbf{',strip(strip(eraseBetween(strip(string(CIs(i,j)),'['), ',', ']'),']'),','),'}'));
+        else 
+            T = append(T, strcat('&',string(CIs(i,j))));
+        end 
+    end
+    T = strcat(T, '\\');
+    fprintf('%s\n', T)
+end
+fprintf('%s\n', E)
+T = 'Totals';
+for i = 1:size(CIs_sum,2)
+    T = append(T, strcat('&',string(CIs_sum(1,i))));
+end
+T = strcat(T, '\\');
+fprintf('%s\n', T)
+fprintf('\\hline\\end{tabular}\\begin{center}\\begin{minipage}{1.05\\textwidth} %% choose width suitably \n {\\footnotesize {\\schape Note}: Diagonal entries are observed lethal encounters. Off-diagonal entries are 90\\%% confidence intervals for counterfactual values of lethal encounters, obtained by replacing the posterior expectation of $\\alpha_j$ for the agency in the row with that of the agency in the column, while assuming no change in observed covariates. Agencies are listed in decreasing order by their estimated value of $\\alpha_j$.} \n \\end{minipage} \n \\end{center} \n \\end{table} \n')
 %% 7) Counterfactuals for Top 10 largest Agencies: Observables
 
-policy_vars = [3 4 5 6 7];
+policy_vars = [3 4 5 6 7]
 
 [NAMES_aux_sorted,...
 REGION_aux_sorted,...
@@ -295,7 +353,60 @@ alpha_hat_sorted] = master_counter_observables(NAMES_aux,...
 % display(CIs_sum) 
 
 % Produces latex for counterfactuals table
-create_table_obs(NAMES_aux_sorted, CIs, CIs_sum)
+fprintf('\\begin{table}[h!]\\centering\\scriptsize\\tabcolsep=0.1cm
+\caption{Counterfactual police homicides for 2013-2018: Observed Covariates} 
+\label{table:counterfactual_obs}
+\begin{tabular}{lrrrrrrrrrr}
+  \hline \hline)
+T = '';
+for i = 1:size(NAMES_aux_sorted,1)
+    str = string(NAMES_aux_sorted(i,1));
+    str = lower(str);
+    expression = '(^|[\. ])\s*.';
+    replace = '${upper($0)}';
+    str = regexprep(str,expression,replace);
+    str = strsplit(str);
+    if str(1) == 'Los' | str(1) == 'Las' | str(1) == 'San'| str(1) == 'New'
+        T = append(T,strcat('&',strcat(str(1),{' '},str(2))));
+    else 
+        T = append(T,strcat('&',str(1)));
+    end
+end
+T = string(strcat(T, '\\'));
+fprintf('%s\n', T)
+E = '\hline';
+fprintf('%s\n', E)
+for i = 1:size(NAMES_aux_sorted,1)
+    T = '';
+    str = string(NAMES_aux_sorted(i,1));
+    str = lower(str);
+    expression = '(^|[\. ])\s*.';
+    replace = '${upper($0)}';
+    str = regexprep(str,expression,replace);
+    str = strsplit(str);
+    if str(1) == 'Los' | str(1) == 'Las' | str(1) == 'San'| str(1) == 'New'
+        T = append(T,strcat(str(1),{' '},str(2)));
+    else 
+        T = append(T, str(1));
+    end
+    for j = 1:size(NAMES_aux_sorted,1)
+        if i == j
+            T = append(T,strcat('&','\textbf{',strip(strip(eraseBetween(strip(string(CIs(i,j)),'['), ',', ']'),']'),','),'}'));
+        else 
+            T = append(T, strcat('&',string(CIs(i,j))));
+        end 
+    end
+    T = strcat(T, '\\');
+    fprintf('%s\n', T)
+end
+fprintf('%s\n', E)
+T = 'Totals';
+for i = 1:size(CIs_sum,2)
+    T = append(T, strcat('&',string(CIs_sum(1,i))));
+end
+T = strcat(T, '\\');
+fprintf('%s\n', T)
+fprintf('\\hline\\end{tabular}\\begin{center}\\begin{minipage}{1.05\\textwidth} %% choose width suitably \n {\\footnotesize {\\schape Note}: Diagonal entries are observed lethal encounters. Off-diagonal entries are 90\\%% confidence intervals for counterfactual values of lethal encounters, obtained by replacing the posterior expectation of $\\alpha_j$ for the agency in the row with that of the agency in the column, while assuming no change in observed covariates. Agencies are listed in decreasing order by their estimated value of $\\alpha_j$.} \n \\end{minipage} \n \\end{center} \n \\end{table} \n')
 %% 8) Counterfactuals by regions
 
 %This section requires the creation of artificial regional LEAs
