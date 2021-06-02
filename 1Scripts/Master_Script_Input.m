@@ -1,4 +1,4 @@
-%% transform_LEA: Calls the xls file and transforms it into a matlab array
+%% Master_Script_Input: Calls the xls file and transforms it into a matlab array
 %  (approximate run time of this scripts: 1 minute)
 %  This script calls the proprietary function:
 %  xls_to_array
@@ -57,4 +57,4 @@ addpath(strcat(path_root,'2functions'))
                                         
 clear variables                                        
                                         
-save(strcat(path_root,'3Data/LEA_data_array.mat')); 
+save(strcat(path_root,'4Output/mat/LEA_data_array.mat')); 

@@ -346,6 +346,6 @@ optimization_gamma.problem ...
               
 clear options output_aux path_root ORI9 upperbound_beta;  
 
-save('../3Data/estimation_results.mat')
+save('../4Output/mat/estimation_results.mat')
 
 end

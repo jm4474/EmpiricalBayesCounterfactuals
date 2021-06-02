@@ -4,7 +4,7 @@
 
 path_root = '../';
 
-load(strcat(path_root,'3Data/LEA_data_array.mat'))
+load(strcat(path_root,'4Output/mat/LEA_data_array.mat'))
 
 OFF     = LEA_data(:,:,strcmp(fields_names,'OFFICERS'));
 
@@ -89,7 +89,7 @@ clearvars -except NAMES ORI9 REGION COUNTY STATE Y X Z T ...
            outcome time_variant_variables time_invariant_variables ...
            path_root
 
-save(strcat(path_root,'3Data/LEA_data_estimation_panel'));
+save(strcat(path_root,'4Output/mat/LEA_data_estimation_panel'));
 
 %% 3) Dummy variable for the 10 largest cities
 
