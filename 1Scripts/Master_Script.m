@@ -113,7 +113,7 @@ aux ...
 
 aux       = aux & sum(Y,2)>1 ;
 
-%% 4) Estimation of beta and gamma
+%% 4) Estimation of beta and gamma 
 %  (approximate run time of this block: 20 seconds)
 %  This block calls the proprietary function estimation_beta_gamma
 %  10th largest cities are dropped out from estimation
@@ -129,6 +129,10 @@ dummy_region ...
                                   dummy_region,...
                                   REGION(~aux,:),...
                                   NAMES(~aux,:));
+%% Bootstrap CIs of Beta and Gamma
+
+efron_bootstrap_se(Y(~aux,:),X(~aux,:,:),Z(~aux,:),time_variant_variables,time_invariant_variables,dummy_region,REGION(~aux,:),NAMES(~aux,:));                              
+                       
                                                             
 %% 5) Display results 
 
