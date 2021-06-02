@@ -131,14 +131,16 @@ dummy_region ...
                                   NAMES(~aux,:));
 %% Bootstrap CIs of Beta and Gamma
 
-efron_bootstrap_se(Y(~aux,:),X(~aux,:,:),Z(~aux,:),time_variant_variables,time_invariant_variables,dummy_region,REGION(~aux,:),NAMES(~aux,:));                              
+nboot = 5;
+
+efron_bootstrap_se(nboot, Y(~aux,:),X(~aux,:,:),Z(~aux,:),time_variant_variables,time_invariant_variables);                              
                        
                                                             
 %% 5) Display results 
 
 % Time-varying covariates: Raw Effects
 
-K                      = size(X,3);
+K = size(X,3);
 
 T_results_variant_raw ...
     = table(RESULTS.time_varying_covs',...

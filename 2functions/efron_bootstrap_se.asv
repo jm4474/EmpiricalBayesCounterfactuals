@@ -52,6 +52,14 @@ problem_gamma.x0 ...
     
 problem_gamma.solver ...
         = 'fminunc';     
+%% 4) Initialize variables for estimation
+%Optimization output
+
+output_beta ...
+    = struct([]);
+
+output_gamma ...
+    = struct([]);
 
 %% 5.1) Estimate beta
 % (pooled) 
@@ -63,27 +71,63 @@ sample_sizes = size(Y_aux,1);
 
 lethal_LEAS = sum(sum(Y_aux,2)>0);
 
-for i=1:nboot
+
+
+% for i=1:nboot
+%     
+%     Y_aux_sample = datasample(Y_aux,sample_sizes,1);
+%     X_aux_sample = 
     
-    %Estimate Beta
-    Y_aux_sample = datasample(Y_aux,sample_sizes,1);
-    X_aux_sample = datasample(X_aux,sample_sizes,1);
-    Z_aux_sample = datasample(Z_aux,sample_sizes,1);
-
-    problem_beta.objective = @(beta) neg_loglikelihood(Y_aux_sample,X_aux_sample,beta);
-
-    [betahat]= fminunc(problem_beta);
-
-    display(betahat)
-    
-    %Estimate Gamma
-    problem_gamma.objective = @(gamma) gamma_estimation(Y_aux,X_aux,Z_aux,betahat,gamma);                          
-
-    [gammahat]= fminunc(problem_gamma); 
-    
-    display(gammahat)
-
-end
+%     objective_fun_beta ...
+%     = @(beta) neg_loglikelihood(Y_aux,X_aux,beta);
+% 
+% problem_beta.objective ...
+%         = objective_fun_beta;
+% 
+% upperbound_beta ...
+%         = mean(sum(Y_aux,2)).*(log(T)/T);  
+% 
+% [betahat,...
+%  fval_beta,...
+%  exitflag_beta,...
+%  output_aux,...
+%  grad_beta,...
+%  hessian_beta] ...
+%         = fminunc(problem_beta);
+%      
+% output_beta = [output_beta, output_aux];    
+%  
+% clear output_aux
+% 
+% 
+% end
+% 
+% %% 5.2) Estimate gamma
+% 
+% % estimate alpha using betahat
+% 
+% objective_fun_gamma ...
+%     = @(gamma) gamma_estimation(Y_aux,X_aux,Z_aux,...
+%                                betahat,gamma);                          
+% problem_gamma.objective ...
+%         = objective_fun_gamma;
+%     
+% [gammahat,...
+%  fval_gamma,...
+%  exitflag_gamma,...
+%  output_aux,...
+%  grad_gamma,...
+%  hessian_gamma] ...
+%         = fminunc(problem_gamma);     
+% 
+% output_gamma = [output_gamma, output_aux];   
+% 
+% display(gammahat)
+% 
+% clear X_aux Y_aux Z_aux
+% 
+% toc;
+% 
 % %% 5) Clean Workspace
 % 
 % %Results Structure 
