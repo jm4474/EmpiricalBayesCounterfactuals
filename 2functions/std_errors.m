@@ -2,7 +2,7 @@ function [standard_errors,Asy_Cov] = std_errors(Y,X,Z,...
                                               beta,gamma,...
                                               hessian_beta,...
                                               hessian_gamma)
-%% std_errors: This function calculates standard errors for covariates and parameters
+%% std_errors: This function calculates standard errors for parameters
 %
 % Author: José Luis Montiel Olea. Last Revised: May 24th, 2021
 %
@@ -19,6 +19,10 @@ function [standard_errors,Asy_Cov] = std_errors(Y,X,Z,...
 % Z: Array of size  J x L
 % beta: K x 1 parameter vector
 % gamma: (L+1) x 1 parameter vector
+% hessian_beta: The hessian matrix of the objective function used to
+% estimate beta
+% hessian_gamma: The hessian matrix of the objective function used to
+% estimate gamma
 
 %% Dimensions
 

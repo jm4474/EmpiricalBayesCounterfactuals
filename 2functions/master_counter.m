@@ -12,10 +12,10 @@ function [NAMES_aux_sorted, REGION_aux_sorted, CIs,CIs_sum,NAIVE_COUNTER,post_me
 %          NAIVE_counter] = master_counter(NAMES_aux,REGION_aux,Y_aux,X_aux,Z_aux,RESULTS,confidence_level)
 %
 % INPUT:
-% NAMES_aux:               Names of the agencies of interest
-% Y_aux,X_aux,Z_aux:       Data of the agencies of interest
-% RESULTS:                 Structure with estimation results
-% confidence_level:        Confidence Level
+% NAMES_aux: Names of the agencies of interest
+% Y_aux,X_aux,Z_aux: Data of the agencies of interest
+% RESULTS: Structure with estimation results
+% confidence_level: Confidence Level
 
 %%
 

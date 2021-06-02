@@ -1,5 +1,5 @@
 function [CIs, CIs_sum] =  master_counter_synthetic(Y_aux,X_aux,Z_aux,RESULTS,confidence_level)
-%% master_counter_synthetic: 
+%% master_counter_synthetic: This function creates counterfactuals for subsets of agencies.
 %
 % Author: José Luis Montiel Olea. Last Revised: May 24th, 2021
 %
@@ -8,11 +8,9 @@ function [CIs, CIs_sum] =  master_counter_synthetic(Y_aux,X_aux,Z_aux,RESULTS,co
 % Syntax: [CIs, CIs_sum] =  master_counter_synthetic(Y_aux,X_aux,Z_aux,RESULTS,confidence_level)
 %
 % INPUT:
-% Y_aux:
-% X_aux:
-% Z_aux:
-% RESULTS:
-% confidence_level:
+% Y_aux, X_aux, Z_aux: Data of the agencies of interest
+% RESULTS: Structure with estimation results
+% confidence_level: Confidence Level
 
 %%
 K  = size(X_aux,3);  %Number of time-varying covariates

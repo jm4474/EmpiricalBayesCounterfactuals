@@ -1,7 +1,7 @@
 function [RESULTS] = estimation_beta_gamma(Y,X,Z,time_variant_variables,time_invariant_variables,dummy_region_aux,REGION,NAMES)
 %% estimation_beta_gamma: This function estimates the parameters beta and gamma
 %
-% Author: José Luis Montiel Olea. Last Revised: Maty 24th, 2021
+% Author: José Luis Montiel Olea. Last Revised: May 24th, 2021
 %
 % Built using MATLAB Version: 9.10.0.1538726 (R2021a) Prerelease
 %

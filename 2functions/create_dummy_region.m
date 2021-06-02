@@ -8,9 +8,9 @@ function [Z] = create_dummy_region(REGION,NAMES,Z)
 % Syntax: [Z] = create_dummy_region(REGION,NAMES,Z)
 %
 % INPUT:
-% REGION: 
-% NAMES: 
-% Z: 
+% REGION: Array of regions for the data
+% NAMES: Array of names for the data
+% Z: Array of size  J x L
 
 %% 
 REGION ...

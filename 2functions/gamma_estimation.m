@@ -1,5 +1,5 @@
 function [f,g] = gamma_estimation(Y,X,Z,beta,gamma)
-%% gamma_estimation: This function estimates 
+%% gamma_estimation: This function estimates the coefficients for the time-invariant covariates
 %
 % Author: José Luis Montiel Olea. Last Revised: May 24th, 2021
 %
@@ -12,7 +12,7 @@ function [f,g] = gamma_estimation(Y,X,Z,beta,gamma)
 % X: Array of size  J x T x K 
 % Z: Array of size  J x L
 % beta:    K x 1 parameter vector
-% gamma1: (L+1) x 1 parameter vector
+% gamma: (L+1) x 1 parameter vector
 
 %%
 J = size(Y,1);
