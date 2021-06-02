@@ -12,6 +12,8 @@ function [table] = create_table_unobs(NAMES_aux_sorted,CIs,CIs_sum)
 % CIs: Confidence intervals for counterfactual values
 % CIs_Sum: Confidence intervals summed across departments for a given a_j
 %%
+diary '../4Output/tex/Table_Counterfactual_Unobs'
+
 fprintf('\\begin{table}[h!]\\centering\\scriptsize\\tabcolsep=0.1cm\\caption{Counterfactual police homicides for 2013-2018: Unobserved Covariates} \\label{table:counterfactual_unobs}\\begin{tabular}{lrrrrrrrrrr}\\hline \\hline')
 T = '';
 for i = 1:size(NAMES_aux_sorted,1)
@@ -62,5 +64,7 @@ end
 T = strcat(T, '\\');
 fprintf('%s\n', T)
 fprintf('\\hline\\end{tabular}\\begin{center}\\begin{minipage}{1.05\\textwidth} %% choose width suitably \n {\\footnotesize {\\schape Note}: Diagonal entries are observed lethal encounters. Off-diagonal entries are 90\\%% confidence intervals for counterfactual values of lethal encounters, obtained by replacing the posterior expectation of $\\alpha_j$ for the agency in the row with that of the agency in the column, while assuming no change in observed covariates. Agencies are listed in decreasing order by their estimated value of $\\alpha_j$.} \n \\end{minipage} \n \\end{center} \n \\end{table} \n')
+
+diary off 
 end
 

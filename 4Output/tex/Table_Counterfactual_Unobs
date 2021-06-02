@@ -1,0 +1,35 @@
+\begin{table}[ht]
+\centering
+\caption{Coefficient Estimates} \label{table:coefficients}
+\begin{tabular}{lcc}
+\hline \hline
+& Coefficient & Standard Errors \\ 
+\hline
+Murder per 100k pop. &0.005&0.008\\
+Log of Avg. pop. (in millions) &1.128&0.092\\
+Officers per 1k pop. &0.014&0.002\\
+Gun Death Rate (\%) &0.045&0.017\\
+Share in Poverty (\%) &0.039&0.013\\
+Share Black (\%) &-0.025&0.009\\
+Garner &0.1&0.228\\
+LEOBR &-0.013&0.216\\
+Land Area per pop. &0.045&0.043\\
+\hline \end{tabular} \end{table}\begin{table}[h!]\centering\scriptsize\tabcolsep=0.1cm\caption{Counterfactual police homicides for 2013-2018: Unobserved Covariates} \label{table:counterfactual_unobs}\begin{tabular}{lrrrrrrrrrr}\hline \hline&Phoenix&Las Vegas&Dallas&Philadelphia&Chicago&San Diego&Los Angeles&Houston&San Antonio&New York\\
+\hline
+Phoenix&\textbf{93}&[59,75]&[42,97]&[33,114]&[41,80]&[43,72]&[43,59]&[40,61]&[34,68]&[12,36]\\
+Las Vegas&[65,83]&\textbf{51}&[34,72]&[28,85]&[34,59]&[36,53]&[32,49]&[33,45]&[27,52]&[9,27]\\
+Dallas&[33,77]&[24,52]&\textbf{33}&[25,43]&[21,44]&[21,43]&[18,43]&[19,38]&[21,31]&[8,15]\\
+Philadelphia&[24,81]&[18,54]&[23,40]&\textbf{28}&[18,40]&[16,43]&[14,44]&[15,37]&[14,36]&[6,14]\\
+Chicago&[75,146]&[57,97]&[49,103]&[47,101]&\textbf{63}&[49,77]&[41,79]&[48,64]&[35,84]&[14,36]\\
+San Diego&[35,60]&[27,39]&[21,45]&[18,49]&[23,35]&\textbf{26}&[19,32]&[21,29]&[16,35]&[6,16]\\
+Los Angeles&[180,250]&[121,186]&[90,220]&[76,245]&[93,176]&[97,158]&\textbf{113}&[90,137]&[74,156]&[29,74]\\
+Houston&[80,121]&[60,82]&[47,95]&[41,101]&[52,69]&[49,68]&[43,66]&\textbf{51}&[35,74]&[13,34]\\
+San Antonio&[50,99]&[36,69]&[39,58]&[29,72]&[28,65]&[28,61]&[26,56]&[25,54]&\textbf{35}&[11,22]\\
+New York&[148,448]&[108,308]&[127,249]&[116,254]&[100,253]&[97,240]&[87,218]&[86,216]&[92,188]&\textbf{55}\\
+\hline
+Totals&[824,1384]&[605,954]&[556,941]&[468,1030]&[518,813]&[511,766]&[473,712]&[481,668]&[428,705]&[170,316]\\
+\hline\end{tabular}\begin{center}\begin{minipage}{1.05\textwidth} % choose width suitably 
+ {\footnotesize {\schape Note}: Diagonal entries are observed lethal encounters. Off-diagonal entries are 90\% confidence intervals for counterfactual values of lethal encounters, obtained by replacing the posterior expectation of $\alpha_j$ for the agency in the row with that of the agency in the column, while assuming no change in observed covariates. Agencies are listed in decreasing order by their estimated value of $\alpha_j$.} 
+ \end{minipage} 
+ \end{center} 
+ \end{table} 

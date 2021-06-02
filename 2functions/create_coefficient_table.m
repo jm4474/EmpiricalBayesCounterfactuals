@@ -12,6 +12,7 @@ function [table] = create_coefficient_table(RESULTS, K, L)
 % K: size(X,3)
 % L: size(Z,2)
 %% 
+diary '../4Output/tex/Table_Coefficients'
 fprintf('\\begin{table}[ht]\n\\centering\n\\caption{Coefficient Estimates} \\label{table:coefficients}\n\\begin{tabular}{lcc}\n\\hline \\hline\n& Coefficient & Standard Errors \\\\ \n\\hline\n')
 for i = 1:K
     T = strcat(RESULTS.time_varying_covs(i), ' & ',string(round(RESULTS.betahat(i), 3)),'&', string(round(RESULTS.se_betahat(i), 3)), '\\');
@@ -22,4 +23,5 @@ for i = 1:L;
     fprintf('%s\n', T)
 end 
 fprintf('\\hline \\end{tabular} \\end{table}')
+diary off
 end
