@@ -1,0 +1,13 @@
+%This code can directly be copied into Overleaf. Attributes can be changed within {} brackets. 
+
+\newcommand{\agencies}{7608}
+\newcommand{\victims}{6574}
+\newcommand{\deadlyforcehomicide}{5885}
+\newcommand{\finalhomicides}{3476}
+\newcommand{\phoenix}{93}
+\newcommand{\newyork}{55}
+\newcommand{\phoenixnylb}{12}
+\newcommand{\phoenixnyub}{36}
+
+%Values can be inputted henceforth using \name{}:
+\agencies{} police departments account for \finalhomicides{} homicides
