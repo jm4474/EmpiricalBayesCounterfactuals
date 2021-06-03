@@ -6,7 +6,7 @@ T  = size(Y,2);
 
 K  = size(X,3); %Number of time-varying covariates
 
-L  = size(Z,2); %Time-invariant covariates
+L  = size(Z,2); %Number of time-invariant covariates
 
 COVARIATES_NAMES ...
    = time_variant_variables;
@@ -53,37 +53,42 @@ problem_gamma.x0 ...
 problem_gamma.solver ...
         = 'fminunc';     
 
-%% 5.1) Estimate beta
-% (pooled) 
+%% Estimate beta
 
 tic;
 Y_aux = Y; X_aux = X; Z_aux = Z;  %Pooled estimation   
     
 sample_sizes = size(Y_aux,1);
 
-lethal_LEAS = sum(sum(Y_aux,2)>0);
+betas = [];
+gammas = [];
 
 for i=1:nboot
-    
+    idx = randi(sample_sizes,[1,sample_sizes]);
+
     %Estimate Beta
-    Y_aux_sample = datasample(Y_aux,sample_sizes,1);
-    X_aux_sample = datasample(X_aux,sample_sizes,1);
-    Z_aux_sample = datasample(Z_aux,sample_sizes,1);
+    Y_aux_sample = Y_aux(idx,:);
+    X_aux_sample = X_aux(idx,:);
+    Z_aux_sample = Z_aux(idx,:);
 
     problem_beta.objective = @(beta) neg_loglikelihood(Y_aux_sample,X_aux_sample,beta);
 
     [betahat]= fminunc(problem_beta);
 
-    display(betahat)
+    betas = horzcat(betas,betahat);
     
     %Estimate Gamma
     problem_gamma.objective = @(gamma) gamma_estimation(Y_aux,X_aux,Z_aux,betahat,gamma);                          
 
     [gammahat]= fminunc(problem_gamma); 
     
-    display(gammahat)
+    gammas = horzcat(gammas,gammahat);
 
 end
+
+display(betas);
+display(gammas);
+
 % %% 5) Clean Workspace
 % 
 % %Results Structure 

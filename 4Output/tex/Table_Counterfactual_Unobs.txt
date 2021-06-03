@@ -1,20 +1,4 @@
-\begin{table}[ht]
-\centering
-\caption{Coefficient Estimates} \label{table:coefficients}
-\begin{tabular}{lcc}
-\hline \hline
-& Coefficient & Standard Errors \\ 
-\hline
-Murder per 100k pop. &0.005&0.008\\
-Log of Avg. pop. (in millions) &1.128&0.092\\
-Officers per 1k pop. &0.014&0.002\\
-Gun Death Rate (\%) &0.045&0.017\\
-Share in Poverty (\%) &0.039&0.013\\
-Share Black (\%) &-0.025&0.009\\
-Garner &0.1&0.228\\
-LEOBR &-0.013&0.216\\
-Land Area per pop. &0.045&0.043\\
-\hline \end{tabular} \end{table}\begin{table}[h!]\centering\scriptsize\tabcolsep=0.1cm\caption{Counterfactual police homicides for 2013-2018: Unobserved Covariates} \label{table:counterfactual_unobs}\begin{tabular}{lrrrrrrrrrr}\hline \hline&Phoenix&Las Vegas&Dallas&Philadelphia&Chicago&San Diego&Los Angeles&Houston&San Antonio&New York\\
+\begin{table}[h!]\centering\scriptsize\tabcolsep=0.1cm\caption{Counterfactual police homicides for 2013-2018: Unobserved Covariates} \label{table:counterfactual_unobs}\begin{tabular}{lrrrrrrrrrr}\hline \hline&Phoenix&Las Vegas&Dallas&Philadelphia&Chicago&San Diego&Los Angeles&Houston&San Antonio&New York\\
 \hline
 Phoenix&\textbf{93}&[59,75]&[42,97]&[33,114]&[41,80]&[43,72]&[43,59]&[40,61]&[34,68]&[12,36]\\
 Las Vegas&[65,83]&\textbf{51}&[34,72]&[28,85]&[34,59]&[36,53]&[32,49]&[33,45]&[27,52]&[9,27]\\

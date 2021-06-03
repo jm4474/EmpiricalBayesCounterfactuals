@@ -229,7 +229,7 @@ display(T_results_invariant)
 
 %% Bootstrap CIs of Beta and Gamma
 
-nboot = 5;
+nboot = 500;
 
 efron_bootstrap_se(nboot, Y(~aux,:),X(~aux,:,:),Z(~aux,:),time_variant_variables,time_invariant_variables);                              
                        
