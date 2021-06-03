@@ -30,4 +30,20 @@ Share Black (\%) &-0.025&0.009\\
 Garner &0.1&0.228\\
 LEOBR &-0.013&0.216\\
 Land Area per pop. &0.045&0.043\\
+\hline \end{tabular} \end{table}\begin{table}[ht]
+\centering
+\caption{Coefficient Estimates} \label{table:coefficients}
+\begin{tabular}{lcc}
+\hline \hline
+& Coefficient & Standard Errors \\ 
+\hline
+Murder per 100k pop. &0.005&0.008\\
+Log of Avg. pop. (in millions) &1.128&0.092\\
+Officers per 1k pop. &0.014&0.002\\
+Gun Death Rate (\%) &0.045&0.017\\
+Share in Poverty (\%) &0.039&0.013\\
+Share Black (\%) &-0.025&0.009\\
+Garner &0.1&0.228\\
+LEOBR &-0.013&0.216\\
+Land Area per pop. &0.045&0.043\\
 \hline \end{tabular} \end{table}

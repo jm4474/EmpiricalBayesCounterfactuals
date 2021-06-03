@@ -70,6 +70,7 @@ betas = [];
 gammas = [];
 
 for i=1:nboot
+    
     idx = randi(sample_sizes,[1,sample_sizes]);
 
     %Estimate Beta
@@ -84,7 +85,7 @@ for i=1:nboot
     betas = horzcat(betas,betahat);
     
     %Estimate Gamma
-    problem_gamma.objective = @(gamma) gamma_estimation(Y_aux,X_aux,Z_aux,betahat,gamma);                          
+    problem_gamma.objective = @(gamma) gamma_estimation(Y_aux_sample,X_aux_sample,Z_aux_sample,betahat,gamma);                          
 
     [gammahat]= fminunc(problem_gamma); 
     
@@ -111,11 +112,11 @@ betas_SE = zeros(size(betas,1),1);
 gammas_SE = zeros(size(gammas,1),1);
 
 for i=1:size(betas,1)
-    betas_SE(i,1) = std(betas(i,:))/sqrt(size(betas(i,:),2));
+    betas_SE(i,1) = std(betas(i,:));
 end
 
 for i=1:size(gammas,1)
-    gammas_SE(i,1) = std(gammas(i,:))/sqrt(size(gammas(i,:),2));
+    gammas_SE(i,1) = std(gammas(i,:));
 end
 
 %% 6) Calculate Mean

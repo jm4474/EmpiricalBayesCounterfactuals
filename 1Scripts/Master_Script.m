@@ -229,13 +229,11 @@ display(T_results_invariant)
 
 %% 7) Bootstrap of Beta and Gamma
 
-nboot = 10;
+nboot = 1000;
 alpha = .1;
 
 [RESULTS_boot] = efron_bootstrap_se(nboot, alpha, Y(~aux,:),X(~aux,:,:),Z(~aux,:),time_variant_variables,time_invariant_variables);                              
 
-display(RESULTS_boot.betas_mean)
-display(RESULTS_boot.gammas_mean)
 display(RESULTS_boot.betas_CI)
 display(RESULTS_boot.gammas_CI)
 display(RESULTS_boot.betas_SE)
