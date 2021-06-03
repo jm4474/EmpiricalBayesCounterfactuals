@@ -1,6 +1,17 @@
-function [RESULTS] = efron_bootstrap_se(nboot,Y,X,Z,time_variant_variables,time_invariant_variables)
-%% EFRON_BOOTSTRAP_SE: 
-%   Detailed explanation goes here
+function [RESULTS] = efron_bootstrap_se(nboot,alpha,Y,X,Z,time_variant_variables,time_invariant_variables)
+%% EFRON_BOOTSTRAP: This function produces 
+%
+% Author: José Luis Montiel Olea. Last Revised: June 3rd, 2021
+%
+% Built using MATLAB Version: 9.10.0.1538726 (R2021a) Prerelease
+%
+% Syntax: [RESULTS] = efron_bootstrap_se(nboot,alpha,Y,X,Z,time_variant_variables,time_invariant_variables)
+%
+% INPUT:
+% nboot: Number of boostrap samples
+% alpha: Significance level for confidence intervals
+% Y,X,Z: data
+% time_(in)variant_variables: names of variables
 %%
 T  = size(Y,2);
 
@@ -19,12 +30,7 @@ COVARIATES_NAMES_TIME_INVARIANT ...
 addpath('../2functions')
 %% 2) Define the optimization problem
 
-options = optimoptions('fminunc',...
-                       'Algorithm',...
-                       'trust-region',...
-                       'MaxIterations',...
-                       10000,...
-                       'MaxFunctionEvaluation',...
+options = optimoptions('fminunc','Algorithm','trust-region','MaxIterations',10000,'MaxFunctionEvaluation',...
                        10000*K,...
                        'StepTolerance',...
                        1e-25,...
@@ -53,7 +59,7 @@ problem_gamma.x0 ...
 problem_gamma.solver ...
         = 'fminunc';     
 
-%% Estimate beta
+%% 3) Estimate Boostraped Parameters
 
 tic;
 Y_aux = Y; X_aux = X; Z_aux = Z;  %Pooled estimation   
@@ -86,84 +92,68 @@ for i=1:nboot
 
 end
 
-display(betas);
-display(gammas);
+%% 4) Construct CIs
+betas_CI = zeros(size(betas,1),2);
+gammas_CI = zeros(size(gammas,1),2);
 
-% %% 5) Clean Workspace
-% 
-% %Results Structure 
-% 
-% RESULTS.betahat   = betahat;  clear betahat
-% 
-% RESULTS.gammahat  = gammahat;         clear gammahat
-% 
-% RESULTS.se_betahat ...
-%                   = standard_errors(1:K);  
-%               
-% RESULTS.se_gammahat ...
-%                   = standard_errors(K+2:K+1+L);   clear standard_errors 
-% 
-% RESULTS.asy_cov   = asy_cov;          clear asy_cov
-% 
-% RESULTS.time_varying_covs ...
-%                   = COVARIATES_NAMES; clear COVARIATES_NAMES
-%               
-% RESULTS.time_invariant_covs ...
-%                   = COVARIATES_NAMES_TIME_INVARIANT; clear COVARIATES_NAMES_TIME_INVARIANT
-%               
-% RESULTS.sample_sizes ...
-%                   = sample_sizes; clear sample_sizes;
-%               
-% RESULTS.lethal_LEAs ...
-%                   = lethal_LEAS; clear lethal_LEAS;
-%               
-% % Optimization details
-%                          
-% optimization_beta.objective ...
-%                   = objective_fun_beta; clear objective_fun_beta
-%               
-% optimization_beta.exitflag ...
-%                   = exitflag_beta; clear exitflag_beta
-%               
-% optimization_beta.fval ...
-%                   = fval_beta; clear fval_beta    
-%  
-% optimization_beta.grad ...
-%                   = grad_beta; clear grad_beta
-%               
-% optimization_beta.hessian ...
-%                   = hessian_beta; clear hessian_beta
-%               
-% optimization_beta.output ...
-%                   = output_beta;  clear output_beta
-%               
-% optimization_beta.problem ...
-%                   = problem_beta; clear problem_beta
-%               
-%               
-% optimization_gamma.objective ...
-%                   = objective_fun_gamma; clear objective_fun_gamma
-%               
-% optimization_gamma.exitflag ...
-%                   = exitflag_gamma; clear exitflag_gamma
-%               
-% optimization_gamma.fval ...
-%                   = fval_gamma; clear fval_gamma    
-%  
-% optimization_gamma.grad ...
-%                   = grad_gamma; clear grad_gamma
-%               
-% optimization_gamma.hessian ...
-%                   = hessian_gamma; clear hessian_gamma
-%               
-% optimization_gamma.output ...
-%                   = output_gamma;  clear output_gamma
-%               
-% optimization_gamma.problem ...
-%                   = problem_gamma; clear problem_gamma  
-%               
-% clear options output_aux path_root ORI9 upperbound_beta;  
-% 
-% save('../4Output/mat/bootstrap_estimation_results.mat')
+for i=1:size(betas,1)
+    betas_CI(i,1) = quantile(betas(i,:),(alpha/2));
+    betas_CI(i,2) = quantile(betas(i,:),(1-(alpha/2)));
+end
+
+for i=1:size(gammas,1)
+    gammas_CI(i,1) = quantile(gammas(i,:),(alpha/2));
+    gammas_CI(i,2) = quantile(gammas(i,:),(1-(alpha/2)));
+end
+
+%% 5) Calculate Standard Errors
+betas_SE = zeros(size(betas,1),1);
+gammas_SE = zeros(size(gammas,1),1);
+
+for i=1:size(betas,1)
+    betas_SE(i,1) = std(betas(i,:))/sqrt(size(betas(i,:),2));
+end
+
+for i=1:size(gammas,1)
+    gammas_SE(i,1) = std(gammas(i,:))/sqrt(size(gammas(i,:),2));
+end
+
+%% 6) Calculate Mean
+betas_mean = zeros(size(betas,1),1);
+gammas_mean = zeros(size(gammas,1),1);
+
+for i=1:size(betas,1)
+    betas_mean(i,1) = mean(betas(i,:));
+end
+
+for i=1:size(gammas,1)
+    gammas_mean(i,1) = mean(gammas(i,:));
+end
+
+%% 7) Clean Workspace
+
+RESULTS.betas   = betas; clear betas
+
+RESULTS.gammas  = gammas; clear gammas
+
+RESULTS.betas_CI = betas_CI; clear betas_CI
+              
+RESULTS.gammas_CI = gammas_CI;  clear gammas_CI 
+
+RESULTS.betas_SE = betas_SE; clear betas_SE
+
+RESULTS.gammas_SE = gammas_SE; clear gammas_SE
+
+RESULTS.betas_mean = betas_mean; clear betas_mean
+
+RESULTS.gammas_mean = gammas_mean; clear gammas_mean
+
+RESULTS.time_variant_variables = COVARIATES_NAMES; clear COVARIATES_NAMES
+              
+RESULTS.time_invariant_covs = COVARIATES_NAMES_TIME_INVARIANT; clear COVARIATES_NAMES_TIME_INVARIANT
+              
+RESULTS.sample_sizes = sample_sizes; clear sample_sizes
+
+save('../4Output/mat/bootstrap_estimation_results.mat')
 end
 

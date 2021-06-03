@@ -227,14 +227,21 @@ T_results_invariant.Properties.VariableNames{3} ...
 
 display(T_results_invariant)
 
-%% Bootstrap CIs of Beta and Gamma
+%% 7) Bootstrap of Beta and Gamma
 
-nboot = 5;
+nboot = 10;
+alpha = .1;
 
-efron_bootstrap_se(nboot, Y(~aux,:),X(~aux,:,:),Z(~aux,:),time_variant_variables,time_invariant_variables);                              
-                       
-                                                            
-%% 7) Counterfactuals for Top 10 largest Agencies: Unobservables
+[RESULTS_boot] = efron_bootstrap_se(nboot, alpha, Y(~aux,:),X(~aux,:,:),Z(~aux,:),time_variant_variables,time_invariant_variables);                              
+
+display(RESULTS_boot.betas_mean)
+display(RESULTS_boot.gammas_mean)
+display(RESULTS_boot.betas_CI)
+display(RESULTS_boot.gammas_CI)
+display(RESULTS_boot.betas_SE)
+display(RESULTS_boot.gammas_SE)
+
+%% 8) Counterfactuals for Top 10 largest Agencies: Unobservables
 
 NAMES_aux = NAMES(aux);
  
@@ -279,7 +286,7 @@ alpha_hat_sorted] = master_counter(NAMES_aux,...
 
 % Produces latex for counterfactuals table
 create_table_unobs(NAMES_aux_sorted,CIs,CIs_sum)
-%% 7) Counterfactuals for Top 10 largest Agencies: Observables
+%% 9) Counterfactuals for Top 10 largest Agencies: Observables
 
 policy_vars = [3 4 5 6 7];
 
@@ -303,7 +310,7 @@ alpha_hat_sorted] = master_counter_observables(NAMES_aux,...
 
 % Produces latex for counterfactuals table
 create_table_obs(NAMES_aux_sorted, CIs, CIs_sum)
-%% 8) Counterfactuals by regions
+%% 10) Counterfactuals by regions
 
 %This section requires the creation of artificial regional LEAs
 
