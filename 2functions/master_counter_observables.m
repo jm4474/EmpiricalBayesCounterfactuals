@@ -14,7 +14,8 @@
 % INPUT:
 % NAMES_aux: Names of the agencies of interest
 % Y_aux,X_aux,Z_aux: Data of the agencies of interest
-% policy_vars: Vector to choose counterfactual variables
+% policy_vars: Vector to choose observed covariates used in counterfactual
+% analysis
 % RESULTS: Structure with estimation results
 % confidence_level: Confidence Level
 

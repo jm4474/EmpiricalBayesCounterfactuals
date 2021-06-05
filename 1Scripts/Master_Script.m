@@ -114,7 +114,7 @@ aux ...
 aux       = aux & sum(Y,2)>1 ;
 
 %% 4) Estimation of beta and gamma 
-%  (approximate run time of this block: 20 seconds)
+%  (approximate run time of this block: 2 seconds)
 %  This block calls the proprietary function estimation_beta_gamma
 %  10th largest cities are dropped out from estimation
 
@@ -122,7 +122,7 @@ addpath(strcat(path_root,'2functions'))
 
 dummy_region ...
           = false;
-
+      
 [RESULTS] = estimation_beta_gamma(Y(~aux,:),X(~aux,:,:),Z(~aux,:),...
                                   time_variant_variables,...
                                   time_invariant_variables,...
@@ -229,15 +229,10 @@ display(T_results_invariant)
 
 %% 7) Bootstrap of Beta and Gamma
 
-nboot = 1000;
+nboot = 10000;
 alpha = .1;
 
 [RESULTS_boot] = efron_bootstrap_se(nboot, alpha, Y(~aux,:),X(~aux,:,:),Z(~aux,:),time_variant_variables,time_invariant_variables);                              
-
-display(RESULTS_boot.betas_CI)
-display(RESULTS_boot.gammas_CI)
-display(RESULTS_boot.betas_SE)
-display(RESULTS_boot.gammas_SE)
 
 %% 8) Counterfactuals for Top 10 largest Agencies: Unobservables
 
@@ -262,29 +257,26 @@ Z_aux = [ones(sum(aux,1),1),Z_aux]; %includes a constant and dummies
  
 end
 
-confidence_level ...
-          = .90;
+confidence_level = .90;
       
-[NAMES_aux_sorted,...
-REGION_aux_sorted,...
-CIs,...
-CIs_sum,...
-NAIVE_counter,...
-alpha_hat_sorted] = master_counter(NAMES_aux,...
-                                REGION_aux,...
-                                Y_aux,X_aux,Z_aux,...
-                                RESULTS,...
-                                confidence_level);  
+[NAMES_aux_sorted, REGION_aux_sorted, CIs,CIs_sum,NAIVE_COUNTER,post_mean_hat_sorted] = master_counter(NAMES_aux,REGION_aux,Y_aux,X_aux,Z_aux,RESULTS,confidence_level);  
                                           
 % display(NAMES_aux_sorted)
-% 
+%
 % display(CIs)
-%  
+%
 % display(CIs_sum) 
 
 % Produces latex for counterfactuals table
 create_table_unobs(NAMES_aux_sorted,CIs,CIs_sum)
-%% 9) Counterfactuals for Top 10 largest Agencies: Observables
+
+%% 9) Bootstrapped Counterfactuals for Top 10 largest Agencies: Unobservables
+
+[NAMES_aux_sorted, REGION_aux_sorted, CIs,CIs_sum, post_mean_hat_sorted] = bootstrap_master_counter(nboot,NAMES_aux,REGION_aux,Y_aux,X_aux,Z_aux,RESULTS,RESULTS_boot,confidence_level);
+
+bootstrap_create_table_unobs(NAMES_aux_sorted,CIs,CIs_sum)
+
+%% 10) Counterfactuals for Top 10 largest Agencies: Observables
 
 policy_vars = [3 4 5 6 7];
 
@@ -308,7 +300,14 @@ alpha_hat_sorted] = master_counter_observables(NAMES_aux,...
 
 % Produces latex for counterfactuals table
 create_table_obs(NAMES_aux_sorted, CIs, CIs_sum)
-%% 10) Counterfactuals by regions
+
+%% 11) Bootstrapped Counterfactuals for Top 10 largest Agencies: Observables
+
+[NAMES_aux_sorted, REGION_aux_sorted, CIs,CIs_sum, post_mean_hat_sorted] = bootstrap_master_counter_observables(policy_vars,nboot,NAMES_aux,REGION_aux,Y_aux,X_aux,Z_aux,RESULTS,RESULTS_boot,confidence_level);
+
+bootstrap_create_table_obs(NAMES_aux_sorted,CIs,CIs_sum)
+
+%% 12) Counterfactuals by regions
 
 %This section requires the creation of artificial regional LEAs
 

@@ -1,0 +1,30 @@
+\begin{table}[h!]\centering\scriptsize\tabcolsep=0.1cm\caption{Counterfactual police homicides for 2013-2018: Unobserved Covariates} \label{table:counterfactual_unobs}\begin{tabular}{lrrrrrrrrrr}\hline \hline&Phoenix&Las Vegas&Dallas&Philadelphia&Chicago&San Diego&Los Angeles&Houston&San Antonio&New York\\
+\hline
+Index in position 2 exceeds array bounds (must not exceed 1).
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('bootstrap_create_table_unobs', '/Users/iggy1212 1/Desktop/Research/PoliceForce/2functions/bootstrap_create_table_unobs.m', 53)" style="font-weight:bold">bootstrap_create_table_unobs</a> (<a href="matlab: opentoline('/Users/iggy1212 1/Desktop/Research/PoliceForce/2functions/bootstrap_create_table_unobs.m',53,0)">line 53</a>)
+            T = append(T, strcat('&',string(CIs(i,j))));
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('Master_Script', '/Users/iggy1212 1/Desktop/Research/PoliceForce/1Scripts/Master_Script.m', 277)" style="font-weight:bold">Master_Script</a> (<a href="matlab: opentoline('/Users/iggy1212 1/Desktop/Research/PoliceForce/1Scripts/Master_Script.m',277,0)">line 277</a>)
+bootstrap_create_table_unobs(NAMES_aux_sorted,CIs,CIs_sum)
+
+Elapsed time is 71.848061 seconds.
+\begin{table}[h!]\centering\scriptsize\tabcolsep=0.1cm\caption{Counterfactual police homicides for 2013-2018: Unobserved Covariates} \label{table:counterfactual_unobs}\begin{tabular}{lrrrrrrrrrr}\hline \hline&Phoenix&Las Vegas&Dallas&Philadelphia&Chicago&San Diego&Los Angeles&Houston&San Antonio&New York\\
+\hline
+Phoenix&\textbf{93}&[61,70]&[51,83]&[45,90]&[46,72]&[48,70]&[44,60]&[44,56]&[39,62]&[14,34]\\
+Las Vegas&[69,80]&\textbf{51}&[41,64]&[36,71]&[37,57]&[38,56]&[35,49]&[35,45]&[30,50]&[11,27]\\
+Dallas&[39,62]&[27,43]&\textbf{33}&[27,41]&[23,41]&[23,40]&[21,34]&[21,32]&[23,29]&[8,16]\\
+Philadelphia&[30,61]&[21,42]&[24,36]&\textbf{28}&[21,33]&[19,35]&[17,31]&[17,29]&[17,30]&[8,13]\\
+Chicago&[84,130]&[58,89]&[54,94]&[56,89]&\textbf{63}&[53,76]&[48,67]&[48,62]&[39,75]&[17,34]\\
+San Diego&[36,53]&[25,37]&[23,40]&[22,40]&[23,32]&\textbf{26}&[21,28]&[20,27]&[17,31]&[7,15]\\
+Los Angeles&[179,241]&[121,171]&[113,181]&[107,190]&[108,153]&[111,149]&\textbf{113}&[97,126]&[87,136]&[35,66]\\
+Houston&[87,112]&[61,78]&[55,84]&[51,86]&[54,69]&[52,70]&[47,61]&\textbf{51}&[39,67]&[15,33]\\
+San Antonio&[54,87]&[37,62]&[42,54]&[35,63]&[31,59]&[31,56]&[30,47]&[28,47]&\textbf{35}&[12,22]\\
+New York&[157,379]&[108,265]&[121,226]&[128,215]&[104,215]&[104,220]&[97,184]&[88,189]&[93,173]&\textbf{55}\\
+\hline
+Totals&[863,1263]&[594,880]&[598,833]&[575,865]&[542,754]&[538,754]&[513,621]&[481,630]&[449,648]&[184,309]\\
+\hline\end{tabular}\begin{center}\begin{minipage}{1.05\textwidth} % choose width suitably 
+ {\footnotesize {\schape Note}: Diagonal entries are observed lethal encounters. Off-diagonal entries are 90\% confidence intervals for counterfactual values of lethal encounters, obtained by replacing the posterior expectation of $\alpha_j$ for the agency in the row with that of the agency in the column, while assuming no change in observed covariates. Agencies are listed in decreasing order by their estimated value of $\alpha_j$.} 
+ \end{minipage} 
+ \end{center} 
+ \end{table} 

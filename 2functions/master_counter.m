@@ -92,8 +92,7 @@ vector_means ...
                   
 beta_boots  = mvnrnd(vector_means',(Asy_Cov + Asy_Cov')/2,1000);
 
-COUNTERS_boots ...
-            = zeros([size(COUNTERS_sorted),size(beta_boots,1)]);
+COUNTERS_boots = zeros([size(COUNTERS_sorted),size(beta_boots,1)]);
 
 tic;        
         
