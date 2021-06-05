@@ -229,11 +229,12 @@ display(T_results_invariant)
 
 %% 7) Bootstrap of Beta and Gamma
 
-nboot = 10000;
+nboot = 10;
 alpha = .1;
 
 [RESULTS_boot] = efron_bootstrap_se(nboot, alpha, Y(~aux,:),X(~aux,:,:),Z(~aux,:),time_variant_variables,time_invariant_variables);                              
 
+bootstrap_create_coefficient_table(RESULTS_boot, K, L)
 %% 8) Counterfactuals for Top 10 largest Agencies: Unobservables
 
 NAMES_aux = NAMES(aux);
