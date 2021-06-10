@@ -103,4 +103,88 @@ Totals&[770,1106]&[639,785]&[615,858]&[623,718]&[566,662]&[529,620]&[447,531]&[4
  {\footnotesize Note: Diagonal entries are observed lethal encounters. Off-diagonal entries are 90\% confidence intervals for counterfactual values of lethal encounters, obtained by replacing Murder per 100k population, Officers per 1k population, Gun Death Rate, Share in Poverty, Garner, and LEOBR of the agency in the row with that of the agency in the column. Agencies are listed in decreasing order by the estimated effect of these covariates, so entries decline as one reads across rows.} 
  \end{minipage} 
  \end{center} 
+ \end{table}\begin{table}[h!]\centering\scriptsize\tabcolsep=0.1cm\caption{Counterfactual police homicides for 2013-2018: Observed Covariates} \label{table:counterfactual_obs}\begin{tabular}{lrrrrrrrrrr}\hline \hline&Phoenix&San Antonio&Las Vegas&Los Angeles&Houston&Dallas&Chicago&San Diego&Philadelphia&New York\\
+\hline
+Phoenix&\textbf{93}&[64,80]&[69,80]&[58,77]&[52,72]&[48,69]&[36,65]&[39,59]&[24,56]&[18,46]\\
+San Antonio&[42,53]&\textbf{35}&[34,43]&[31,35]&[28,34]&[25,32]&[20,31]&[21,27]&[13,26]&[10,21]\\
+Las Vegas&[61,70]&[43,55]&\textbf{51}&[40,54]&[38,50]&[35,48]&[27,44]&[27,40]&[17,39]&[13,32]\\
+Los Angeles&[139,186]&[116,134]&[110,148]&\textbf{113}&[93,117]&[85,110]&[72,97]&[73,91]&[47,84]&[35,68]\\
+Houston&[68,93]&[55,68]&[54,71]&[51,63]&\textbf{51}&[47,50]&[35,48]&[35,47]&[23,40]&[18,34]\\
+Dallas&[47,67]&[38,48]&[37,51]&[35,45]&[35,37]&\textbf{33}&[24,33]&[25,33]&[17,28]&[12,24]\\
+Chicago&[93,167]&[76,118]&[75,125]&[75,102]&[70,94]&[66,91]&\textbf{63}&[51,76]&[41,58]&[30,49]\\
+San Diego&[43,66]&[36,46]&[35,52]&[34,42]&[30,41]&[28,37]&[23,34]&\textbf{26}&[16,27]&[13,22]\\
+Philadelphia&[49,115]&[40,79]&[39,89]&[39,70]&[38,65]&[36,59]&[32,46]&[29,49]&\textbf{28}&[20,28]\\
+New York&[116,293]&[94,198]&[91,217]&[94,181]&[85,166]&[80,155]&[74,118]&[68,120]&[57,83]&\textbf{55}\\
+\hline
+Totals&[759,1202]&[630,837]&[609,908]&[614,739]&[561,685]&[524,640]&[448,532]&[426,534]&[300,457]&[232,373]\\
+\hline 
+ \end{tabular} 
+ \begin{center} 
+ \begin{minipage}{1.05\textwidth} % choose width suitably 
+ {\footnotesize Note: Diagonal entries are observed lethal encounters. Off-diagonal entries are 90\% confidence intervals for counterfactual values of lethal encounters, obtained by replacing Murder per 100k population, Officers per 1k population, Gun Death Rate, Share in Poverty, Garner, and LEOBR of the agency in the row with that of the agency in the column. Agencies are listed in decreasing order by the estimated effect of these covariates, so entries decline as one reads across rows.} 
+ \end{minipage} 
+ \end{center} 
+ \end{table}\begin{table}[h!]\centering\scriptsize\tabcolsep=0.1cm\caption{Counterfactual police homicides for 2013-2018: Observed Covariates} \label{table:counterfactual_obs}\begin{tabular}{lrrrrrrrrrr}\hline \hline&Phoenix&San Antonio&Las Vegas&Los Angeles&Houston&Dallas&Chicago&San Diego&Philadelphia&New York\\
+\hline
+Phoenix&\textbf{93}&[64,80]&[69,80]&[58,77]&[52,72]&[48,69]&[36,65]&[39,59]&[24,56]&[18,46]\\
+San Antonio&[42,53]&\textbf{35}&[34,43]&[31,35]&[28,34]&[25,32]&[20,31]&[21,27]&[13,26]&[10,21]\\
+Las Vegas&[61,70]&[43,55]&\textbf{51}&[40,54]&[38,50]&[35,48]&[27,44]&[27,40]&[17,39]&[13,32]\\
+Los Angeles&[139,186]&[116,134]&[110,148]&\textbf{113}&[93,117]&[85,110]&[72,97]&[73,91]&[47,84]&[35,68]\\
+Houston&[68,93]&[55,68]&[54,71]&[51,63]&\textbf{51}&[47,50]&[35,48]&[35,47]&[23,40]&[18,34]\\
+Dallas&[47,67]&[38,48]&[37,51]&[35,45]&[35,37]&\textbf{33}&[24,33]&[25,33]&[17,28]&[12,24]\\
+Chicago&[93,167]&[76,118]&[75,125]&[75,102]&[70,94]&[66,91]&\textbf{63}&[51,76]&[41,58]&[30,49]\\
+San Diego&[43,66]&[36,46]&[35,52]&[34,42]&[30,41]&[28,37]&[23,34]&\textbf{26}&[16,27]&[13,22]\\
+Philadelphia&[49,115]&[40,79]&[39,89]&[39,70]&[38,65]&[36,59]&[32,46]&[29,49]&\textbf{28}&[20,28]\\
+New York&[116,293]&[94,198]&[91,217]&[94,181]&[85,166]&[80,155]&[74,118]&[68,120]&[57,83]&\textbf{55}\\
+\hline
+Totals&[759,1202]&[630,837]&[609,908]&[614,739]&[561,685]&[524,640]&[448,532]&[426,534]&[300,457]&[232,373]\\
+\hline 
+ \end{tabular} 
+ \begin{center} 
+ \begin{minipage}{1.05\textwidth} % choose width suitably 
+ {\footnotesize Note: Diagonal entries are observed lethal encounters. Off-diagonal entries are 90\% confidence intervals for counterfactual values of lethal encounters, obtained by replacing Murder per 100k population, Officers per 1k population, Gun Death Rate, Share in Poverty, Garner, and LEOBR of the agency in the row with that of the agency in the column. Agencies are listed in decreasing order by the estimated effect of these covariates, so entries decline as one reads across rows.} 
+ \end{minipage} 
+ \end{center} 
+ \end{table}\begin{table}[h!]\centering\scriptsize\tabcolsep=0.1cm\caption{Counterfactual police homicides for 2013-2018: Observed Covariates} \label{table:counterfactual_obs}\begin{tabular}{lrrrrrrrrrr}\hline \hline&Phoenix&San Antonio&Las Vegas&Los Angeles&Houston&Dallas&Chicago&San Diego&Philadelphia&New York\\
+\hline
+Phoenix&\textbf{93}&[64,80]&[69,80]&[58,77]&[52,72]&[48,69]&[36,65]&[39,59]&[24,56]&[18,46]\\
+San Antonio&[42,53]&\textbf{35}&[34,43]&[31,35]&[28,34]&[25,32]&[20,31]&[21,27]&[13,26]&[10,21]\\
+Las Vegas&[61,70]&[43,55]&\textbf{51}&[40,54]&[38,50]&[35,48]&[27,44]&[27,40]&[17,39]&[13,32]\\
+Los Angeles&[139,186]&[116,134]&[110,148]&\textbf{113}&[93,117]&[85,110]&[72,97]&[73,91]&[47,84]&[35,68]\\
+Houston&[68,93]&[55,68]&[54,71]&[51,63]&\textbf{51}&[47,50]&[35,48]&[35,47]&[23,40]&[18,34]\\
+Dallas&[47,67]&[38,48]&[37,51]&[35,45]&[35,37]&\textbf{33}&[24,33]&[25,33]&[17,28]&[12,24]\\
+Chicago&[93,167]&[76,118]&[75,125]&[75,102]&[70,94]&[66,91]&\textbf{63}&[51,76]&[41,58]&[30,49]\\
+San Diego&[43,66]&[36,46]&[35,52]&[34,42]&[30,41]&[28,37]&[23,34]&\textbf{26}&[16,27]&[13,22]\\
+Philadelphia&[49,115]&[40,79]&[39,89]&[39,70]&[38,65]&[36,59]&[32,46]&[29,49]&\textbf{28}&[20,28]\\
+New York&[116,293]&[94,198]&[91,217]&[94,181]&[85,166]&[80,155]&[74,118]&[68,120]&[57,83]&\textbf{55}\\
+\hline
+Totals&[759,1202]&[630,837]&[609,908]&[614,739]&[561,685]&[524,640]&[448,532]&[426,534]&[300,457]&[232,373]\\
+\hline 
+ \end{tabular} 
+ \begin{center} 
+ \begin{minipage}{1.05\textwidth} % choose width suitably 
+ {\footnotesize Note: Diagonal entries are observed lethal encounters. Off-diagonal entries are 90\% confidence intervals for counterfactual values of lethal encounters, obtained by replacing Murder per 100k population, Officers per 1k population, Gun Death Rate, Share in Poverty, Garner, and LEOBR of the agency in the row with that of the agency in the column. Agencies are listed in decreasing order by the estimated effect of these covariates, so entries decline as one reads across rows.} 
+ \end{minipage} 
+ \end{center} 
+ \end{table}\begin{table}[h!]\centering\scriptsize\tabcolsep=0.1cm\caption{Counterfactual police homicides for 2013-2018: Observed Covariates} \label{table:counterfactual_obs}\begin{tabular}{lrrrrrrrrrr}\hline \hline&Phoenix&San Antonio&Las Vegas&Los Angeles&Houston&Dallas&Chicago&San Diego&Philadelphia&New York\\
+\hline
+Phoenix&\textbf{93}&[64,80]&[69,80]&[58,77]&[52,72]&[48,69]&[36,65]&[39,59]&[24,56]&[18,46]\\
+San Antonio&[42,53]&\textbf{35}&[34,43]&[31,35]&[28,34]&[25,32]&[20,31]&[21,27]&[13,26]&[10,21]\\
+Las Vegas&[61,70]&[43,55]&\textbf{51}&[40,54]&[38,50]&[35,48]&[27,44]&[27,40]&[17,39]&[13,32]\\
+Los Angeles&[139,186]&[116,134]&[110,148]&\textbf{113}&[93,117]&[85,110]&[72,97]&[73,91]&[47,84]&[35,68]\\
+Houston&[68,93]&[55,68]&[54,71]&[51,63]&\textbf{51}&[47,50]&[35,48]&[35,47]&[23,40]&[18,34]\\
+Dallas&[47,67]&[38,48]&[37,51]&[35,45]&[35,37]&\textbf{33}&[24,33]&[25,33]&[17,28]&[12,24]\\
+Chicago&[93,167]&[76,118]&[75,125]&[75,102]&[70,94]&[66,91]&\textbf{63}&[51,76]&[41,58]&[30,49]\\
+San Diego&[43,66]&[36,46]&[35,52]&[34,42]&[30,41]&[28,37]&[23,34]&\textbf{26}&[16,27]&[13,22]\\
+Philadelphia&[49,115]&[40,79]&[39,89]&[39,70]&[38,65]&[36,59]&[32,46]&[29,49]&\textbf{28}&[20,28]\\
+New York&[116,293]&[94,198]&[91,217]&[94,181]&[85,166]&[80,155]&[74,118]&[68,120]&[57,83]&\textbf{55}\\
+\hline
+Totals&[759,1202]&[630,837]&[609,908]&[614,739]&[561,685]&[524,640]&[448,532]&[426,534]&[300,457]&[232,373]\\
+\hline 
+ \end{tabular} 
+ \begin{center} 
+ \begin{minipage}{1.05\textwidth} % choose width suitably 
+ {\footnotesize Note: Diagonal entries are observed lethal encounters. Off-diagonal entries are 90\% confidence intervals for counterfactual values of lethal encounters, obtained by replacing Murder per 100k population, Officers per 1k population, Gun Death Rate, Share in Poverty, Garner, and LEOBR of the agency in the row with that of the agency in the column. Agencies are listed in decreasing order by the estimated effect of these covariates, so entries decline as one reads across rows.} 
+ \end{minipage} 
+ \end{center} 
  \end{table}
