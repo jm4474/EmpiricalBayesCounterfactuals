@@ -1,104 +1,17 @@
 \begin{table}[h!]\centering\scriptsize\tabcolsep=0.1cm\caption{Counterfactual police homicides for 2013-2018: Unobserved Covariates} \label{table:counterfactual_unobs}\begin{tabular}{lrrrrrrrrrr}\hline \hline&Phoenix&Las Vegas&Dallas&Philadelphia&Chicago&San Diego&Los Angeles&Houston&San Antonio&New York\\
 \hline
-Index in position 2 exceeds array bounds (must not exceed 1).
-
-Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('bootstrap_create_table_unobs', '/Users/iggy1212 1/Desktop/Research/PoliceForce/2functions/bootstrap_create_table_unobs.m', 53)" style="font-weight:bold">bootstrap_create_table_unobs</a> (<a href="matlab: opentoline('/Users/iggy1212 1/Desktop/Research/PoliceForce/2functions/bootstrap_create_table_unobs.m',53,0)">line 53</a>)
-            T = append(T, strcat('&',string(CIs(i,j))));
-
-Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('Master_Script', '/Users/iggy1212 1/Desktop/Research/PoliceForce/1Scripts/Master_Script.m', 277)" style="font-weight:bold">Master_Script</a> (<a href="matlab: opentoline('/Users/iggy1212 1/Desktop/Research/PoliceForce/1Scripts/Master_Script.m',277,0)">line 277</a>)
-bootstrap_create_table_unobs(NAMES_aux_sorted,CIs,CIs_sum)
-
-Elapsed time is 71.848061 seconds.
-\begin{table}[h!]\centering\scriptsize\tabcolsep=0.1cm\caption{Counterfactual police homicides for 2013-2018: Unobserved Covariates} \label{table:counterfactual_unobs}\begin{tabular}{lrrrrrrrrrr}\hline \hline&Phoenix&Las Vegas&Dallas&Philadelphia&Chicago&San Diego&Los Angeles&Houston&San Antonio&New York\\
+Phoenix&\textbf{93}&[60,71]&[51,87]&[42,101]&[46,78]&[48,75]&[45,61]&[44,59]&[40,64]&[13,34]\\
+Las Vegas&[69,82]&\textbf{51}&[41,67]&[36,75]&[37,57]&[39,59]&[35,51]&[35,46]&[32,52]&[11,27]\\
+Dallas&[37,63]&[26,43]&\textbf{33}&[28,44]&[23,40]&[23,40]&[20,34]&[21,32]&[23,29]&[9,16]\\
+Philadelphia&[27,65]&[20,42]&[22,36]&\textbf{28}&[20,34]&[18,36]&[16,32]&[16,30]&[15,30]&[8,13]\\
+Chicago&[77,130]&[58,90]&[54,95]&[55,94]&\textbf{63}&[53,76]&[45,66]&[50,62]&[40,77]&[17,34]\\
+San Diego&[34,53]&[24,36]&[23,40]&[22,43]&[23,33]&\textbf{26}&[20,28]&[20,27]&[17,31]&[7,15]\\
+Los Angeles&[177,239]&[117,168]&[113,189]&[103,212]&[110,163]&[111,156]&\textbf{113}&[97,127]&[86,137]&[33,69]\\
+Houston&[83,112]&[59,77]&[55,86]&[50,94]&[54,67]&[52,72]&[47,61]&\textbf{51}&[40,66]&[15,34]\\
+San Antonio&[53,85]&[36,59]&[42,54]&[35,69]&[30,58]&[32,57]&[30,47]&[28,46]&\textbf{35}&[12,22]\\
+New York&[154,410]&[109,264]&[120,219]&[127,212]&[104,209]&[103,224]&[93,192]&[85,193]&[93,175]&\textbf{55}\\
 \hline
-Phoenix&\textbf{93}&[61,70]&[51,83]&[45,90]&[46,72]&[48,70]&[44,60]&[44,56]&[39,62]&[14,34]\\
-Las Vegas&[69,80]&\textbf{51}&[41,64]&[36,71]&[37,57]&[38,56]&[35,49]&[35,45]&[30,50]&[11,27]\\
-Dallas&[39,62]&[27,43]&\textbf{33}&[27,41]&[23,41]&[23,40]&[21,34]&[21,32]&[23,29]&[8,16]\\
-Philadelphia&[30,61]&[21,42]&[24,36]&\textbf{28}&[21,33]&[19,35]&[17,31]&[17,29]&[17,30]&[8,13]\\
-Chicago&[84,130]&[58,89]&[54,94]&[56,89]&\textbf{63}&[53,76]&[48,67]&[48,62]&[39,75]&[17,34]\\
-San Diego&[36,53]&[25,37]&[23,40]&[22,40]&[23,32]&\textbf{26}&[21,28]&[20,27]&[17,31]&[7,15]\\
-Los Angeles&[179,241]&[121,171]&[113,181]&[107,190]&[108,153]&[111,149]&\textbf{113}&[97,126]&[87,136]&[35,66]\\
-Houston&[87,112]&[61,78]&[55,84]&[51,86]&[54,69]&[52,70]&[47,61]&\textbf{51}&[39,67]&[15,33]\\
-San Antonio&[54,87]&[37,62]&[42,54]&[35,63]&[31,59]&[31,56]&[30,47]&[28,47]&\textbf{35}&[12,22]\\
-New York&[157,379]&[108,265]&[121,226]&[128,215]&[104,215]&[104,220]&[97,184]&[88,189]&[93,173]&\textbf{55}\\
-\hline
-Totals&[863,1263]&[594,880]&[598,833]&[575,865]&[542,754]&[538,754]&[513,621]&[481,630]&[449,648]&[184,309]\\
-\hline\end{tabular}\begin{center}\begin{minipage}{1.05\textwidth} % choose width suitably 
- {\footnotesize {\schape Note}: Diagonal entries are observed lethal encounters. Off-diagonal entries are 90\% confidence intervals for counterfactual values of lethal encounters, obtained by replacing the posterior expectation of $\alpha_j$ for the agency in the row with that of the agency in the column, while assuming no change in observed covariates. Agencies are listed in decreasing order by their estimated value of $\alpha_j$.} 
- \end{minipage} 
- \end{center} 
- \end{table} 
-\begin{table}[h!]\centering\scriptsize\tabcolsep=0.1cm\caption{Counterfactual police homicides for 2013-2018: Unobserved Covariates} \label{table:counterfactual_unobs}\begin{tabular}{lrrrrrrrrrr}\hline \hline&Phoenix&Las Vegas&Dallas&San Diego&Philadelphia&San Antonio&Houston&Chicago&Los Angeles&New York\\
-\hline
-Phoenix&\textbf{93}&[62,77]&[53,90]&[50,76]&[46,87]&[38,70]&[45,57]&[40,67]&[43,56]&[14,30]\\
-Las Vegas&[64,79]&\textbf{51}&[41,65]&[40,56]&[34,66]&[31,52]&[33,43]&[28,51]&[30,45]&[10,23]\\
-Dallas&[35,60]&[27,43]&\textbf{33}&[23,40]&[25,39]&[24,29]&[19,33]&[18,37]&[17,31]&[7,14]\\
-San Diego&[33,51]&[25,35]&[23,39]&\textbf{26}&[20,34]&[17,32]&[19,25]&[16,28]&[17,26]&[6,13]\\
-Philadelphia&[31,59]&[23,44]&[25,39]&[23,40]&\textbf{28}&[18,33]&[18,30]&[18,32]&[17,30]&[7,12]\\
-San Antonio&[48,89]&[36,61]&[42,51]&[31,56]&[31,57]&\textbf{35}&[25,45]&[22,54]&[24,44]&[9,19]\\
-Houston&[85,108]&[63,81]&[54,93]&[56,73]&[50,84]&[42,74]&\textbf{51}&[43,65]&[43,56]&[14,29]\\
-Chicago&[90,151]&[65,119]&[58,123]&[61,108]&[58,101]&[42,102]&[51,77]&\textbf{63}&[50,71]&[17,34]\\
-Los Angeles&[190,250]&[133,199]&[123,224]&[121,182]&[112,196]&[93,171]&[105,139]&[102,147]&\textbf{113}&[34,61]\\
-New York&[176,390]&[124,302]&[137,267]&[119,264]&[139,219]&[106,214]&[101,205]&[104,212]&[104,187]&\textbf{55}\\
-\hline
-Totals&[885,1283]&[638,977]&[643,990]&[596,875]&[593,849]&[477,778]&[504,672]&[477,739]&[494,606]&[179,288]\\
-\hline\end{tabular}\begin{center}\begin{minipage}{1.05\textwidth} % choose width suitably 
- {\footnotesize {\schape Note}: Diagonal entries are observed lethal encounters. Off-diagonal entries are 90\% confidence intervals for counterfactual values of lethal encounters, obtained by replacing the posterior expectation of $\alpha_j$ for the agency in the row with that of the agency in the column, while assuming no change in observed covariates. Agencies are listed in decreasing order by their estimated value of $\alpha_j$.} 
- \end{minipage} 
- \end{center} 
- \end{table} 
-\begin{table}[h!]\centering\scriptsize\tabcolsep=0.1cm\caption{Counterfactual police homicides for 2013-2018: Unobserved Covariates} \label{table:counterfactual_unobs}\begin{tabular}{lrrrrrrrrrr}\hline \hline&Phoenix&Las Vegas&Dallas&Philadelphia&Chicago&San Diego&Los Angeles&Houston&San Antonio&New York\\
-\hline
-Phoenix&\textbf{93}&[60,71]&[54,90]&[52,108]&[47,72]&[48,70]&[45,56]&[43,60]&[42,62]&[17,35]\\
-Las Vegas&[69,81]&\textbf{51}&[47,66]&[40,78]&[36,59]&[37,57]&[35,47]&[34,44]&[35,48]&[13,25]\\
-Dallas&[36,59]&[27,38]&\textbf{33}&[27,42]&[24,43]&[25,39]&[21,34]&[22,31]&[22,28]&[9,14]\\
-Philadelphia&[25,52]&[19,37]&[23,37]&\textbf{28}&[19,30]&[18,29]&[15,26]&[16,25]&[16,30]&[9,11]\\
-Chicago&[83,128]&[56,92]&[50,90]&[61,96]&\textbf{63}&[50,67]&[49,65]&[46,60]&[39,73]&[20,31]\\
-San Diego&[36,53]&[25,38]&[23,37]&[27,44]&[26,35]&\textbf{26}&[21,28]&[20,25]&[18,31]&[9,14]\\
-Los Angeles&[191,238]&[127,171]&[115,183]&[125,219]&[111,149]&[111,146]&\textbf{113}&[104,123]&[88,131]&[43,71]\\
-Houston&[81,113]&[62,79]&[57,81]&[61,93]&[55,73]&[56,69]&[48,57]&\textbf{51}&[44,66]&[20,30]\\
-San Antonio&[54,81]&[39,53]&[43,56]&[34,67]&[32,59]&[32,54]&[31,47]&[28,43]&\textbf{35}&[12,22]\\
-New York&[151,308]&[115,221]&[139,217]&[147,180]&[116,179]&[106,166]&[90,148]&[97,145]&[93,169]&\textbf{55}\\
-\hline
-Totals&[827,1169]&[627,838]&[591,822]&[624,946]&[564,749]&[561,721]&[492,587]&[483,556]&[455,655]&[211,306]\\
-\hline\end{tabular}\begin{center}\begin{minipage}{1.05\textwidth} % choose width suitably 
- {\footnotesize {\schape Note}: Diagonal entries are observed lethal encounters. Off-diagonal entries are 90\% confidence intervals for counterfactual values of lethal encounters, obtained by replacing the posterior expectation of $\alpha_j$ for the agency in the row with that of the agency in the column, while assuming no change in observed covariates. Agencies are listed in decreasing order by their estimated value of $\alpha_j$.} 
- \end{minipage} 
- \end{center} 
- \end{table} 
-\begin{table}[h!]\centering\scriptsize\tabcolsep=0.1cm\caption{Counterfactual police homicides for 2013-2018: Unobserved Covariates} \label{table:counterfactual_unobs}\begin{tabular}{lrrrrrrrrrr}\hline \hline&Phoenix&Las Vegas&Dallas&San Diego&Philadelphia&San Antonio&Houston&Chicago&Los Angeles&New York\\
-\hline
-Phoenix&\textbf{93}&[63,78]&[51,88]&[51,81]&[40,93]&[41,70]&[44,60]&[38,71]&[41,58]&[12,33]\\
-Las Vegas&[63,77]&\textbf{51}&[41,66]&[41,59]&[32,67]&[32,53]&[33,43]&[27,53]&[29,47]&[10,25]\\
-Dallas&[36,63]&[27,43]&\textbf{33}&[24,41]&[24,40]&[23,30]&[20,32]&[17,36]&[18,32]&[7,14]\\
-San Diego&[31,49]&[24,35]&[22,38]&\textbf{26}&[19,35]&[17,30]&[18,25]&[17,29]&[17,26]&[6,13]\\
-Philadelphia&[29,68]&[23,48]&[24,41]&[22,41]&\textbf{28}&[16,34]&[18,32]&[18,33]&[16,32]&[7,12]\\
-San Antonio&[48,83]&[35,58]&[41,53]&[32,57]&[30,64]&\textbf{35}&[25,45]&[22,51]&[24,43]&[9,19]\\
-Houston&[82,111]&[62,82]&[55,90]&[57,78]&[48,84]&[42,76]&\textbf{51}&[42,64]&[43,59]&[13,34]\\
-Chicago&[85,160]&[63,123]&[61,126]&[61,104]&[57,103]&[45,105]&[52,80]&\textbf{63}&[47,74]&[18,36]\\
-Los Angeles&[184,263]&[126,204]&[120,217]&[119,185]&[103,205]&[95,170]&[100,139]&[99,154]&\textbf{113}&[32,67]\\
-New York&[159,452]&[115,307]&[132,288]&[112,263]&[132,219]&[105,236]&[87,217]&[101,204]&[96,201]&\textbf{55}\\
-\hline
-Totals&[859,1387]&[630,1004]&[631,983]&[584,865]&[565,893]&[479,804]&[485,670]&[473,714]&[491,627]&[172,307]\\
-\hline\end{tabular}\begin{center}\begin{minipage}{1.05\textwidth} % choose width suitably 
- {\footnotesize {\schape Note}: Diagonal entries are observed lethal encounters. Off-diagonal entries are 90\% confidence intervals for counterfactual values of lethal encounters, obtained by replacing the posterior expectation of $\alpha_j$ for the agency in the row with that of the agency in the column, while assuming no change in observed covariates. Agencies are listed in decreasing order by their estimated value of $\alpha_j$.} 
- \end{minipage} 
- \end{center} 
- \end{table} 
-\begin{table}[h!]\centering\scriptsize\tabcolsep=0.1cm\caption{Counterfactual police homicides for 2013-2018: Unobserved Covariates} \label{table:counterfactual_unobs}\begin{tabular}{lrrrrrrrrrr}\hline \hline&Phoenix&Las Vegas&Dallas&Philadelphia&Chicago&San Diego&Los Angeles&Houston&San Antonio&New York\\
-\hline
-Phoenix&\textbf{93}&[62,70]&[52,87]&[47,96]&[49,74]&[49,73]&[46,59]&[45,57]&[38,65]&[14,34]\\
-Las Vegas&[69,79]&\textbf{51}&[40,66]&[36,72]&[39,58]&[39,56]&[36,48]&[36,45]&[30,50]&[12,27]\\
-Dallas&[37,62]&[27,44]&\textbf{33}&[29,42]&[23,41]&[22,40]&[20,33]&[20,34]&[23,29]&[9,15]\\
-Philadelphia&[29,58]&[21,41]&[23,34]&\textbf{28}&[20,34]&[20,34]&[16,30]&[17,29]&[17,29]&[8,13]\\
-Chicago&[81,124]&[57,85]&[52,95]&[55,91]&\textbf{63}&[54,73]&[47,65]&[49,61]&[38,73]&[17,34]\\
-San Diego&[35,52]&[25,36]&[23,41]&[23,40]&[24,32]&\textbf{26}&[20,28]&[20,26]&[18,32]&[7,14]\\
-Los Angeles&[181,235]&[124,166]&[116,194]&[110,203]&[111,156]&[112,156]&\textbf{113}&[99,124]&[89,142]&[36,67]\\
-Houston&[86,109]&[61,75]&[52,89]&[52,89]&[54,68]&[53,69]&[48,60]&\textbf{51}&[38,67]&[16,32]\\
-San Antonio&[52,89]&[37,62]&[43,54]&[37,62]&[31,61]&[30,56]&[29,46]&[28,49]&\textbf{35}&[12,21]\\
-New York&[157,367]&[109,249]&[125,213]&[129,209]&[104,212]&[104,216]&[96,178]&[90,186]&[94,164]&\textbf{55}\\
-\hline
-Totals&[852,1227]&[593,851]&[611,855]&[589,905]&[536,764]&[536,755]&[499,618]&[481,623]&[448,645]&[189,307]\\
+Totals&[848,1315]&[591,882]&[588,832]&[566,937]&[539,760]&[543,766]&[497,629]&[478,617]&[448,656]&[179,312]\\
 \hline\end{tabular}\begin{center}\begin{minipage}{1.05\textwidth} % choose width suitably 
  {\footnotesize {\schape Note}: Diagonal entries are observed lethal encounters. Off-diagonal entries are 90\% confidence intervals for counterfactual values of lethal encounters, obtained by replacing the posterior expectation of $\alpha_j$ for the agency in the row with that of the agency in the column, while assuming no change in observed covariates. Agencies are listed in decreasing order by their estimated value of $\alpha_j$.} 
  \end{minipage} 

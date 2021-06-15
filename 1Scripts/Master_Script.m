@@ -345,3 +345,7 @@ display(NAMES_synthetic_aux_sorted)
 display(CIs_synthetic)
 
 display(CIs_synthetic_sum)  
+
+%% 13) Assets
+
+create_assets(Y,CIs,CIs_sum,NAIVE_counter,RESULTS)
