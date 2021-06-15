@@ -11,8 +11,8 @@ function create_assets(Y,CIs,CIs_sum,NAIVE_counter,RESULTS)
 % Y: matrix of size J x T
 % CIs: Confidence intervals for counterfactual values
 % CIs_sum: Confidence intervals summed across departments for a given a_j
+% RESULTS: Result of beta_gamma_estimation
 % NAIVE_counter:
-%RESULTS:
 % 
 %% 
 
