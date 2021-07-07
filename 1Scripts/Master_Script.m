@@ -307,8 +307,14 @@ create_table_obs(NAMES_aux_sorted, CIs, CIs_sum)
 [NAMES_aux_sorted, REGION_aux_sorted, CIs,CIs_sum, post_mean_hat_sorted] = bootstrap_master_counter_observables(policy_vars,nboot,NAMES_aux,REGION_aux,Y_aux,X_aux,Z_aux,RESULTS,RESULTS_boot,confidence_level);
 
 bootstrap_create_table_obs(NAMES_aux_sorted,CIs,CIs_sum)
+%% 12) Bootstrapped Difference (Unobservables - Observable) Counterfactuals for Top 10
 
-%% 12) Counterfactuals by regions
+[NAMES_aux_sorted, REGION_aux_sorted, CIs,CIs_sum, post_mean_hat_sorted] = bootstrap_counter_diff(policy_vars,nboot,NAMES_aux,REGION_aux,Y_aux,X_aux,Z_aux,RESULTS,RESULTS_boot,confidence_level);
+
+bootstrap_create_table_obs(NAMES_aux_sorted,CIs,CIs_sum)
+
+
+%% 13) Counterfactuals by regions
 
 %This section requires the creation of artificial regional LEAs
 
@@ -346,6 +352,6 @@ display(CIs_synthetic)
 
 display(CIs_synthetic_sum)  
 
-%% 13) Assets
+%% 14) Assets
 
 create_assets(Y,CIs,CIs_sum,NAIVE_counter,RESULTS)
