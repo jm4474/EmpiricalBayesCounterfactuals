@@ -13,7 +13,7 @@ function [table] = bootstrap_create_coefficient_table(RESULTS_boot, K, L)
 % L: size(Z,2)
 %% 
 diary '../4Output/tex/Bootstrap_Table_Coefficients.txt'
-fprintf('\\begin{table}[ht]\n\\centering\n\\caption{Coefficient Estimates} \\label{table:coefficients}\n\\begin{tabular}{lcc}\n\\hline \\hline\n& Confidence Intervals & Standard Errors \\\\ \n\\hline\n')
+fprintf('\\begin{table}[ht]\n\\centering\n\\caption{Coefficient Estimates} \\label{table:bootstrap_coefficients}\n\\begin{tabular}{lcc}\n\\hline \\hline\n& Confidence Intervals & Standard Errors \\\\ \n\\hline\n')
 for i = 1:K
     T = strcat(RESULTS_boot.time_variant_variables(i), ' & ',strcat('[',string(round(RESULTS_boot.betas_CI(i,1),2)),',',string(round(RESULTS_boot.betas_CI(i,2),2)),']') ,'&', string(round(RESULTS_boot.betas_SE(i), 3)), '\\');
     fprintf('%s\n', T)

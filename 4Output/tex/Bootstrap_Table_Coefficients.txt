@@ -14,4 +14,133 @@ Share Black (\%) &[-0.03,-0.02]&0.005\\
 Garner &[-0.18,0.51]&0.198\\
 LEOBR &[-0.24,0.21]&0.155\\
 Land Area per pop. &[-69.85,5.24]&75.999\\
+\hline \end{tabular} \end{table}\begin{table}[ht]
+\centering
+\caption{Coefficient Estimates} \label{table:coefficients}
+\begin{tabular}{lcc}
+\hline \hline
+& Confidence Intervals & Standard Errors \\ 
+\hline
+Murder per 100k pop. &[0,0.01]&0.004\\
+Log of Avg. pop. (in millions) &[1.06,1.27]&0.064\\
+Officers per 1k pop. &[-0.06,0.03]&0.026\\
+Gun Death Rate (\%) &[0.03,0.08]&0.015\\
+Share in Poverty (\%) &[0.03,0.05]&0.007\\
+Share Black (\%) &[-0.03,-0.02]&0.005\\
+Garner &[-0.19,0.56]&0.24\\
+LEOBR &[-0.25,0.19]&0.141\\
+Land Area per pop. &[-48.58,7.91]&44.599\\
+\hline \end{tabular} \end{table}\begin{table}[ht]
+\centering
+\caption{Coefficient Estimates} \label{table:coefficients}
+\begin{tabular}{lcc}
+\hline \hline
+& Confidence Intervals & Standard Errors \\ 
+\hline
+Murder per 100k pop. &[0,0.02]&0.005\\
+Log of Avg. pop. (in millions) &[1.04,1.26]&0.068\\
+Officers per 1k pop. &[-0.08,0.03]&0.04\\
+Gun Death Rate (\%) &[0.03,0.08]&0.015\\
+Share in Poverty (\%) &[0.03,0.05]&0.007\\
+Share Black (\%) &[-0.03,-0.02]&0.005\\
+Garner &[-0.17,0.58]&0.237\\
+LEOBR &[-0.26,0.23]&0.152\\
+Land Area per pop. &[-46.29,3.53]&51.031\\
+\hline \end{tabular} \end{table}\begin{table}[ht]
+\centering
+\caption{Coefficient Estimates} \label{table:coefficients}
+\begin{tabular}{lcc}
+\hline \hline
+& Confidence Intervals & Standard Errors \\ 
+\hline
+Murder per 100k pop. &[0,0.01]&0.004\\
+Log of Avg. pop. (in millions) &[1.04,1.28]&0.075\\
+Officers per 1k pop. &[-0.05,0.03]&0.033\\
+Gun Death Rate (\%) &[0.03,0.08]&0.014\\
+Share in Poverty (\%) &[0.03,0.05]&0.006\\
+Share Black (\%) &[-0.03,-0.02]&0.005\\
+Garner &[-0.21,0.48]&0.21\\
+LEOBR &[-0.27,0.26]&0.154\\
+Land Area per pop. &[-35.44,3.76]&39.415\\
+\hline \end{tabular} \end{table}\begin{table}[ht]
+\centering
+\caption{Coefficient Estimates} \label{table:coefficients}
+\begin{tabular}{lcc}
+\hline \hline
+& Confidence Intervals & Standard Errors \\ 
+\hline
+Murder per 100k pop. &[0,0.02]&0.005\\
+Log of Avg. pop. (in millions) &[1.04,1.27]&0.069\\
+Officers per 1k pop. &[-0.08,0.03]&0.043\\
+Gun Death Rate (\%) &[0.03,0.08]&0.015\\
+Share in Poverty (\%) &[0.03,0.05]&0.007\\
+Share Black (\%) &[-0.03,-0.02]&0.005\\
+Garner &[-0.15,0.58]&0.235\\
+LEOBR &[-0.26,0.22]&0.15\\
+Land Area per pop. &[-51,3.03]&55.067\\
+\hline \end{tabular} \end{table}\begin{table}[ht]
+\centering
+\caption{Coefficient Estimates} \label{table:coefficients}
+\begin{tabular}{lcc}
+\hline \hline
+& Confidence Intervals & Standard Errors \\ 
+\hline
+Murder per 100k pop. &[0,0.02]&0.005\\
+Log of Avg. pop. (in millions) &[1.03,1.26]&0.076\\
+Officers per 1k pop. &[-0.07,0.03]&0.038\\
+Gun Death Rate (\%) &[0.03,0.08]&0.016\\
+Share in Poverty (\%) &[0.03,0.05]&0.007\\
+Share Black (\%) &[-0.03,-0.02]&0.005\\
+Garner &[-0.15,0.59]&0.239\\
+LEOBR &[-0.28,0.24]&0.153\\
+Land Area per pop. &[-49.38,3.26]&46.29\\
+\hline \end{tabular} \end{table}\begin{table}[ht]
+\centering
+\caption{Coefficient Estimates} \label{table:coefficients}
+\begin{tabular}{lcc}
+\hline \hline
+& Confidence Intervals & Standard Errors \\ 
+\hline
+Murder per 100k pop. &[0,0.02]&0.005\\
+Log of Avg. pop. (in millions) &[1.04,1.26]&0.068\\
+Officers per 1k pop. &[-0.08,0.03]&0.04\\
+Gun Death Rate (\%) &[0.03,0.08]&0.015\\
+Share in Poverty (\%) &[0.03,0.05]&0.007\\
+Share Black (\%) &[-0.03,-0.02]&0.005\\
+Garner &[-0.17,0.58]&0.237\\
+LEOBR &[-0.26,0.23]&0.152\\
+Land Area per pop. &[-46.29,3.53]&51.031\\
+\hline \end{tabular} \end{table}\begin{table}[ht]
+\centering
+\caption{Coefficient Estimates} \label{table:coefficients}
+\begin{tabular}{lcc}
+\hline \hline
+& Confidence Intervals & Standard Errors \\ 
+\hline
+Murder per 100k pop. &[0,0.01]&0.004\\
+Assaults per 10 Officer &[0.05,0.11]&0.019\\
+Log of Avg. pop. (in millions) &[1.03,1.28]&0.078\\
+Officers per 1k pop. &[-0.06,0.03]&0.033\\
+Gun Death Rate (\%) &[0.03,0.07]&0.015\\
+Share in Poverty (\%) &[0.03,0.05]&0.007\\
+Share Black (\%) &[-0.03,-0.01]&0.005\\
+Garner &[-0.18,0.58]&0.245\\
+LEOBR &[-0.34,0.17]&0.156\\
+Land Area per pop. &[-95.8,3.2]&50.736\\
+\hline \end{tabular} \end{table}\begin{table}[ht]
+\centering
+\caption{Coefficient Estimates} \label{table:bootstrap_coefficients}
+\begin{tabular}{lcc}
+\hline \hline
+& Confidence Intervals & Standard Errors \\ 
+\hline
+Murder per 100k pop. &[0,0.02]&0.005\\
+Log of Avg. pop. (in millions) &[1.04,1.26]&0.068\\
+Officers per 1k pop. &[-0.08,0.03]&0.04\\
+Gun Death Rate (\%) &[0.03,0.08]&0.015\\
+Share in Poverty (\%) &[0.03,0.05]&0.007\\
+Share Black (\%) &[-0.03,-0.02]&0.005\\
+Garner &[-0.17,0.58]&0.237\\
+LEOBR &[-0.26,0.23]&0.152\\
+Land Area per pop. &[-46.62,3.53]&51.045\\
 \hline \end{tabular} \end{table}

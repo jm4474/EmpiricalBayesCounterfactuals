@@ -62,7 +62,7 @@ array2 = ["positivehomicides",...
          "officerscoeff"];
      
 for i = 1:length(array1)
-    path = strcat(''../4Output/tex/Assets.tex');
+    path = strcat('../4Output/tex/Assets.tex');
     fid = fopen(path,'at');
     str = strcat("\\newcommand{\\",array2(i),"}{",array1(i),"}");
     fprintf(fid, str);

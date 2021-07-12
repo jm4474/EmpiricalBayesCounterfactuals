@@ -68,7 +68,7 @@ for i=1:nboot
 
     %Estimate Beta
     Y_aux_sample = Y_aux(idx,:);
-    X_aux_sample = X_aux(idx,:);
+    X_aux_sample = X_aux(idx,:,:);
     Z_aux_sample = Z_aux(idx,:);
 
     problem_beta.objective = @(beta) neg_loglikelihood(Y_aux_sample,X_aux_sample,beta);

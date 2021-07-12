@@ -20,6 +20,9 @@ MURDER ...
 GUN_DEATH ...
         = LEA_data(:,:,strcmp(fields_names,'GUN_DEATH_RATE'));
     
+% ASSAULTS ...
+%         = LEA_data(:,:,strcmp(fields_names,'ASSAULTS_TOTAL'));
+    
 GARNER ...
        = LEA_data(:,1,strcmp(fields_names,'GARNER')); 
    
@@ -49,6 +52,8 @@ T                      = size(Y,2);
 
 X(:,:,1)               = 100000*(MURDER./OKLE_POP);   %MURDER PER POPULATION PER 100,000
 
+% X(:,:,2)               = 10*ASSAULTS./OFF;
+
 % Time-invariant covariates
 
 Z(:,1)                 = log(POP(:,1)./1e6);  
@@ -72,7 +77,9 @@ Z(:,8)                 = 1e-6*LAND_AREA(:,1)./POP(:,1);
 outcome   = {'HOMICIDES'};
 
 time_variant_variables ...
-          = {'Murder per 100k pop.'};
+          = {'Murder per 100k pop.'
+           %,'Assaults per 10 Officers'
+          };
          
 time_invariant_variables ...
           = {'Log of Avg. pop. (in millions)',...             
@@ -229,7 +236,7 @@ display(T_results_invariant)
 
 %% 7) Bootstrap of Beta and Gamma
 
-nboot = 100;
+nboot = 1000;
 alpha = .1;
 
 [RESULTS_boot] = efron_bootstrap_se(nboot, alpha, Y(~aux,:),X(~aux,:,:),Z(~aux,:),time_variant_variables,time_invariant_variables);                              
@@ -301,20 +308,39 @@ alpha_hat_sorted] = master_counter_observables(NAMES_aux,...
 
 % Produces latex for counterfactuals table
 create_table_obs(NAMES_aux_sorted, CIs, CIs_sum)
-
 %% 11) Bootstrapped Counterfactuals for Top 10 largest Agencies: Observables
 
 [NAMES_aux_sorted, REGION_aux_sorted, CIs,CIs_sum, post_mean_hat_sorted] = bootstrap_master_counter_observables(policy_vars,nboot,NAMES_aux,REGION_aux,Y_aux,X_aux,Z_aux,RESULTS,RESULTS_boot,confidence_level);
 
 bootstrap_create_table_obs(NAMES_aux_sorted,CIs,CIs_sum)
-%% 12) Bootstrapped Difference (Unobservables - Observable) Counterfactuals for Top 10
+%% 12) Counterfactuals for Top 10 largest Agencies: Observables and Unobservables
 
-[NAMES_aux_sorted, REGION_aux_sorted, CIs,CIs_sum, post_mean_hat_sorted] = bootstrap_counter_diff(policy_vars,nboot,NAMES_aux,REGION_aux,Y_aux,X_aux,Z_aux,RESULTS,RESULTS_boot,confidence_level);
+policy_vars = [3 4 5 6 7];
 
-bootstrap_create_table_obs(NAMES_aux_sorted,CIs,CIs_sum)
+[NAMES_aux_sorted, REGION_aux_sorted,CIs,CIs_sum,alpha_hat_sorted] = master_counter_unobs_obs(NAMES_aux,...
+                                REGION_aux,...
+                                Y_aux,X_aux,Z_aux,...
+                                policy_vars,...
+                                RESULTS,...
+                                confidence_level);  
 
+% Produces latex for counterfactuals table
+create_table_unobs_obs(NAMES_aux_sorted, CIs, CIs_sum)
+%% 13) Bootstrapped Counterfactuals for Top 10 largest Agencies: Observables and Unobservables
 
-%% 13) Counterfactuals by regions
+policy_vars = [3 4 5 6 7];
+
+[NAMES_aux_sorted, REGION_aux_sorted,CIs,CIs_sum,alpha_hat_sorted] = bootstrap_master_counter_unobs_obs(nboot,NAMES_aux,...
+                                REGION_aux,...
+                                Y_aux,X_aux,Z_aux,...
+                                policy_vars,...
+                                RESULTS,...
+                                RESULTS_boot,...
+                                confidence_level);  
+
+% Produces latex for counterfactuals table
+bootstrap_create_table_unobs_obs(NAMES_aux_sorted, CIs, CIs_sum)
+%% 14) Counterfactuals by regions
 
 %This section requires the creation of artificial regional LEAs
 
@@ -352,6 +378,6 @@ display(CIs_synthetic)
 
 display(CIs_synthetic_sum)  
 
-%% 14) Assets
+%% 15) Assets
 
 create_assets(Y,CIs,CIs_sum,NAIVE_counter,RESULTS)
