@@ -1,5 +1,5 @@
 function [NAMES_aux_sorted, REGION_aux_sorted, CIs,CIs_sum,NAIVE_COUNTER,post_mean_hat_sorted] = master_counter(NAMES_aux,REGION_aux,Y_aux,X_aux,Z_aux,RESULTS,confidence_level)   
-%% master_counter:  This function creates counterfactuals for subsets of agencies. 
+%% master_counter:  This function creates counterfactuals for subsets of agencies using alternative unobserved covariates. 
 %
 % Author: José Luis Montiel Olea. Last Revised: May 24th, 2021
 %

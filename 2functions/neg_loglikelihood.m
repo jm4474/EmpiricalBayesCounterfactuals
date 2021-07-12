@@ -1,5 +1,5 @@
 function [f,g,H] = neg_loglikelihood(Y,X,beta)
-%% neg_loglikelihood: This function returns the negative log-likelihood of the multinomial, used in estimating beta. 
+%% neg_loglikelihood: This function returns the negative log-likelihood of the multinomial 
 % 
 % Author: José Luis Montiel Olea. Last Revised: May 24th, 2021
 %

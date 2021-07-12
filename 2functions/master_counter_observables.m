@@ -1,5 +1,5 @@
  function [NAMES_aux_sorted, REGION_aux_sorted, CIs,CIs_sum,NAIVE_COUNTER,post_mean_hat_sorted] = master_counter_observables(NAMES_aux,REGION_aux,Y_aux,X_aux,Z_aux,policy_vars,RESULTS,confidence_level)   
-%% master_counter_observables:  This function creates counterfactuals for subsets of agencies using alternative covariates. 
+%% master_counter_observables:  This function creates counterfactuals for subsets of agencies using alternative observed covariates. 
 %
 % Author: José Luis Montiel Olea. Last Revised: May 26th, 2021
 %
@@ -14,8 +14,7 @@
 % INPUT:
 % NAMES_aux: Names of the agencies of interest
 % Y_aux,X_aux,Z_aux: Data of the agencies of interest
-% policy_vars: Vector to choose observed covariates used in counterfactual
-% analysis
+% policy_vars: Vector of policy-relevant covariates
 % RESULTS: Structure with estimation results
 % confidence_level: Confidence Level
 

@@ -1,5 +1,5 @@
 function [NAMES_aux_sorted, REGION_aux_sorted, CIs,CIs_sum, post_mean_hat_sorted] = bootstrap_master_counter(nboot,NAMES_aux,REGION_aux,Y_aux,X_aux,Z_aux,RESULTS,RESULTS_boot,confidence_level)   
-%% bootstrap_master_counter:  This function creates counterfactuals for subsets of agencies using bootstrapped coefficients.
+%% bootstrap_master_counter:  This function creates counterfactuals for subsets of agencies using bootstrapped coefficients alternative unobserved covariates (calculated using a boostrap sample of parameters).
 %
 % Author: José Luis Montiel Olea. Last Revised: June 4th, 2021
 %

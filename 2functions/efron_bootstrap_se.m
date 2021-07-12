@@ -1,5 +1,5 @@
 function [RESULTS] = efron_bootstrap_se(nboot,alpha,Y,X,Z,time_variant_variables,time_invariant_variables)
-%% EFRON_BOOTSTRAP: This function produces 
+%% EFRON_BOOTSTRAP: This function creates a bootstrap sample for parameters
 %
 % Author: José Luis Montiel Olea. Last Revised: June 3rd, 2021
 %

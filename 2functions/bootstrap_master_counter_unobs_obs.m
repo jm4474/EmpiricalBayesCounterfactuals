@@ -1,5 +1,5 @@
 function [NAMES_aux_sorted, REGION_aux_sorted, CIs,CIs_sum,post_mean_hat_sorted] = bootstrap_master_counter_unobs_obs(nboot,NAMES_aux,REGION_aux,Y_aux,X_aux,Z_aux,policy_vars,RESULTS,RESULTS_boot,confidence_level)   
-%% bootstrap_master_counter_unobs_obs:  This function creates counterfactuals for subsets of agencies using alternative covariates. 
+%% bootstrap_master_counter_unobs_obs:  This function creates counterfactuals for subsets of agencies using alternative unobserved and observed covariates (calculated using a bootsrap sample of parameters). 
 %
 % Author: José Luis Montiel Olea. Last Revised: May 26th, 2021
 %
