@@ -12,7 +12,7 @@ function [table] = create_coefficient_table(RESULTS, K, L)
 % K: size(X,3)
 % L: size(Z,2)
 %% 
-dfile= '../4Output/tex/Table_Coefficients.txt'
+dfile= '../4Output/tex/Table_Coefficients.tex'
 if exist(dfile, 'file') ; delete(dfile); end
 diary(dfile)
 diary on

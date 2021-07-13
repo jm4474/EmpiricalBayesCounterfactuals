@@ -1,0 +1,22 @@
+\begin{table}[h!]\centering\scriptsize\tabcolsep=0.1cm\caption{Counterfactual police homicides for 2013-2018: Observed Covariates} \label{table:bootstrap_counterfactual_obs}\begin{tabular}{lrrrrrrrrrr}\hline \hline&Phoenix&San Antonio&Las Vegas&Los Angeles&Houston&Dallas&San Diego&Chicago&Philadelphia&New York\\
+\hline
+Phoenix&\textbf{93}&[67,81]&[70,79]&[60,79]&[54,71]&[50,68]&[42,62]&[38,60]&[26,54]&[22,49]\\
+San Antonio&[42,51]&\textbf{35}&[33,41]&[32,36]&[27,33]&[25,32]&[23,28]&[19,28]&[13,24]&[12,22]\\
+Las Vegas&[62,70]&[45,57]&\textbf{51}&[41,55]&[38,49]&[35,47]&[29,42]&[26,41]&[18,37]&[15,34]\\
+Los Angeles&[136,178]&[115,129]&[107,143]&\textbf{113}&[90,113]&[83,107]&[77,92]&[66,91]&[46,79]&[41,71]\\
+Houston&[69,91]&[56,70]&[55,71]&[52,66]&\textbf{51}&[48,50]&[37,50]&[35,44]&[25,39]&[20,37]\\
+Dallas&[47,64]&[39,49]&[38,50]&[36,47]&[35,37]&\textbf{33}&[26,35]&[24,31]&[17,27]&[14,25]\\
+San Diego&[41,60]&[35,43]&[33,49]&[34,40]&[28,38]&[26,35]&\textbf{26}&[21,30]&[15,26]&[14,22]\\
+Chicago&[100,160]&[82,119]&[80,128]&[80,110]&[75,95]&[71,89]&[58,84]&\textbf{63}&[43,58]&[35,54]\\
+Philadelphia&[51,106]&[43,79]&[41,82]&[42,72]&[39,61]&[37,56]&[31,54]&[32,43]&\textbf{28}&[21,31]\\
+New York&[107,240]&[92,175]&[86,194]&[90,156]&[79,145]&[75,136]&[68,112]&[67,102]&[52,76]&\textbf{55}\\
+\hline
+Totals&[755,1094]&[637,796]&[604,874]&[625,733]&[555,658]&[521,619]&[445,554]&[421,500]&[294,435]&[252,396]\\
+\hline 
+ \end{tabular} 
+ \begin{center} 
+ \begin{minipage}{1.05\textwidth} % choose width suitably 
+ {\footnotesize Note: Diagonal entries are observed lethal encounters (totaling \totalincidentsten{} encounters). Off-diagonal entries are 90\% confidence intervals for counterfactual values of lethal encounters, obtained by replacing Officers per 1k population, Gun Death Rate, Share in Poverty, Garner, and LEOBR of the agency in the row with that of the agency in the column. Agencies are listed in decreasing order by the estimated effect of these covariates, so entries decline as one reads across rows.} 
+ \end{minipage} 
+ \end{center} 
+ \end{table}

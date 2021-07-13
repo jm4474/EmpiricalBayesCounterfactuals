@@ -12,7 +12,7 @@ function [table] = create_table_unobs(NAMES_aux_sorted,CIs,CIs_sum)
 % CIs: Confidence intervals for counterfactual values
 % CIs_Sum: Confidence intervals summed across departments for a given a_j
 %%
-dfile = '../4Output/tex/Table_Counterfactual_Unobs.txt'
+dfile = '../4Output/tex/Table_Counterfactual_Unobs.tex';
 if exist(dfile, 'file') ; delete(dfile); end
 diary(dfile)
 diary on
