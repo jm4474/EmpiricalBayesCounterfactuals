@@ -12,7 +12,11 @@ function [table] = create_table_unobs_obs(NAMES_aux_sorted,CIs,CIs_sum)
 % CIs: Confidence intervals for counterfactual values
 % CIs_Sum: Confidence intervals summed across departments for a given a_j
 %%
-diary '../4Output/tex/Table_Counterfactual_Unobs_Obs.txt'
+dfile = '../4Output/tex/Table_Counterfactual_Unobs_Obs.txt'
+if exist(dfile, 'file') ; delete(dfile); end
+diary(dfile)
+diary on
+
 fprintf('\\begin{table}[h!]\\centering\\scriptsize\\tabcolsep=0.1cm\\caption{Counterfactual police homicides for 2013-2018: Unobserved and Observed} \\label{table:counterfactual_unobs_obs}\\begin{tabular}{lrrrrrrrrrr}\\hline \\hline')
 T = '';
 for i = 1:size(NAMES_aux_sorted,1)
@@ -63,6 +67,7 @@ end
 T = strcat(T, '\\');
 fprintf('%s\n', T)
 fprintf('\\hline \n \\end{tabular} \n \\begin{center} \n \\begin{minipage}{1.05\\textwidth} %% choose width suitably \n {\\footnotesize Note: Diagonal entries are observed lethal encounters (totaling \\totalincidentsten{} encounters). Off-diagonal entries are 90\\%% confidence intervals for counterfactual values of lethal encounters, obtained by replacing Officers per 1k population, Gun Death Rate, Share in Poverty, Garner, LEOBR, and the posterior expectation of $\\alpha_j$ of the agency in the row with that of the agency in the column. Agencies are listed in decreasing order by the estimated effect of these covariates, so entries decline as one reads across rows.} \n \\end{minipage} \n \\end{center} \n \\end{table}')
+
 diary off
 end
 

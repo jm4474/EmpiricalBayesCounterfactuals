@@ -12,7 +12,10 @@ function [table] = bootstrap_create_table_unobs_obs(NAMES_aux_sorted,CIs,CIs_sum
 % CIs: Confidence intervals for counterfactual values
 % CIs_Sum: Confidence intervals summed across departments for a given a_j
 %%
-diary '../4Output/tex/Table_Bootstrap_Counterfactual_Unobs_Obs.txt'
+dfile= '../4Output/tex/Table_Bootstrap_Counterfactual_Unobs_Obs.txt'
+if exist(dfile, 'file') ; delete(dfile); end
+diary(dfile)
+diary on
 
 fprintf('\\begin{table}[h!]\\centering\\scriptsize\\tabcolsep=0.1cm\\caption{Counterfactual police homicides for 2013-2018: Unobserved and Observed} \\label{table:bootstrap_counterfactual_unobs_obs}\\begin{tabular}{lrrrrrrrrrr}\\hline \\hline')
 T = '';
