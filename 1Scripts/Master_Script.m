@@ -1,6 +1,67 @@
 %% Master Script
 
-%% 1) Adjust the scale of main variables
+%% 1) Call the xls file and transforms it into a matlab array
+%  (approximate run time of this scripts: 1 minute)
+%  This script calls the proprietary function:
+%  xls_to_array
+
+
+path_root = '../';
+
+url       = strcat(path_root,'3Data/Agency_Data_MPV_LEOKA_OKLE_CENSUS_PLUS.xlsx');
+
+variables = {'ORI9',...
+             'NAME',...             
+             'REGION',...
+             'STATENAME',...
+             'COUNTYNAME',...
+             'FIPS',...
+             'AGCYTYPE',...
+             'FPLACE',...
+             'YEAR',...
+             'HOMICIDES',...
+             'OFFICERS',...
+             'POPULATION',...
+             'CORE_CITY',...
+             'OKLE_POP',...
+             'MURDERS',...
+             'VIOLENT_CRIME',...
+             'PROPERTY_CRIME',...
+             'GUN_DEATH_RATE',...
+             'BLACK_POPULATION',...
+             'HISPANIC_POPULATION',...
+             'ASSAULTS_TOTAL',...
+             'BELOW_POVERTY',...
+             'CENSUS_POPULATION',...
+             'GARNER',...
+             'LEOBR',...
+             'LAND_AREA'...
+             };
+
+only_police_departments = 1; 
+
+addpath(strcat(path_root,'2functions'))
+
+[LEA_data, ...
+ NAMES,...
+ ORI9,...
+ REGION,...
+ STATE,...
+ COUNTY,...
+ FIPS,...
+ FPLACE,...
+ AGCYTYPE,...
+ fields_names,...
+ rowsWithMissing,...
+ table_missing] = create_array_file(path_root,...
+                                            url,...
+                                            variables,...
+                                            only_police_departments);
+                                        
+clear variables                                        
+                                        
+save(strcat(path_root,'4Output/mat/LEA_data_array.mat'));
+%% 2) Adjust the scale of main variables
 
 path_root = '../';
 
@@ -42,7 +103,7 @@ SHARE_POVERTY ...
        = 100*LEA_data(:,1,strcmp(fields_names,'BELOW_POVERTY'))...
        ./LEA_data(:,1,strcmp(fields_names,'CENSUS_POPULATION'));    
    
-%% 2) Prepare data for estimation
+%% 3) Prepare data for estimation
 
 Y                      = LEA_data(:,:,1);
 
@@ -98,7 +159,7 @@ clearvars -except NAMES ORI9 REGION COUNTY STATE Y X Z T ...
 
 save(strcat(path_root,'4Output/mat/LEA_data_estimation_panel'));
 
-%% 3) Dummy variable for the 10 largest cities
+%% 4) Dummy variable for the 10 largest cities
 
 NAMES ...
     = cellstr(string(NAMES));
@@ -120,7 +181,7 @@ aux ...
 
 aux       = aux & sum(Y,2)>1 ;
 
-%% 4) Estimation of beta and gamma 
+%% 5) Estimation of beta and gamma 
 %  (approximate run time of this block: 2 seconds)
 %  This block calls the proprietary function estimation_beta_gamma
 %  10th largest cities are dropped out from estimation
@@ -137,7 +198,7 @@ dummy_region ...
                                   REGION(~aux,:),...
                                   NAMES(~aux,:));
 
-%% 5) Display results 
+%% 6) Display results 
 
 % Time-varying covariates: Raw Effects
 
@@ -182,7 +243,7 @@ L  = size(Z,2);
 %Produces latex for coefficients table
 create_coefficient_table(RESULTS, K, L)
 
-%% 6) Display results: Percentages
+%% 7) Display results: Percentages
 
 K                      = size(X,3);
 
@@ -234,7 +295,7 @@ T_results_invariant.Properties.VariableNames{3} ...
 
 display(T_results_invariant)
 
-%% 7) Bootstrap of Beta and Gamma
+%% 8) Bootstrap of Beta and Gamma
 
 nboot = 1000;
 alpha = .1;
@@ -242,7 +303,7 @@ alpha = .1;
 [RESULTS_boot] = efron_bootstrap_se(nboot, alpha, Y(~aux,:),X(~aux,:,:),Z(~aux,:),time_variant_variables,time_invariant_variables);                              
 
 bootstrap_create_coefficient_table(RESULTS_boot, K, L)
-%% 8) Counterfactuals for Top 10 largest Agencies: Unobservables
+%% 9) Counterfactuals for Top 10 largest Agencies: Unobservables
 
 NAMES_aux = NAMES(aux);
  
@@ -278,13 +339,13 @@ confidence_level = .90;
 % Produces latex for counterfactuals table
 create_table_unobs(NAMES_aux_sorted,CIs,CIs_sum)
 
-%% 9) Bootstrapped Counterfactuals for Top 10 largest Agencies: Unobservables
+%% 10) Bootstrapped Counterfactuals for Top 10 largest Agencies: Unobservables
 
 [NAMES_aux_sorted, REGION_aux_sorted, CIs,CIs_sum, post_mean_hat_sorted] = bootstrap_master_counter(nboot,NAMES_aux,REGION_aux,Y_aux,X_aux,Z_aux,RESULTS,RESULTS_boot,confidence_level);
 
 bootstrap_create_table_unobs(NAMES_aux_sorted,CIs,CIs_sum)
 
-%% 10) Counterfactuals for Top 10 largest Agencies: Observables
+%% 11) Counterfactuals for Top 10 largest Agencies: Observables
 
 policy_vars = [3 4 5 6 7];
 
@@ -308,12 +369,12 @@ alpha_hat_sorted] = master_counter_observables(NAMES_aux,...
 
 % Produces latex for counterfactuals table
 create_table_obs(NAMES_aux_sorted, CIs, CIs_sum)
-%% 11) Bootstrapped Counterfactuals for Top 10 largest Agencies: Observables
+%% 12) Bootstrapped Counterfactuals for Top 10 largest Agencies: Observables
 
 [NAMES_aux_sorted, REGION_aux_sorted, CIs,CIs_sum, post_mean_hat_sorted] = bootstrap_master_counter_observables(policy_vars,nboot,NAMES_aux,REGION_aux,Y_aux,X_aux,Z_aux,RESULTS,RESULTS_boot,confidence_level);
 
 bootstrap_create_table_obs(NAMES_aux_sorted,CIs,CIs_sum)
-%% 12) Counterfactuals for Top 10 largest Agencies: Observables and Unobservables
+%% 13) Counterfactuals for Top 10 largest Agencies: Observables and Unobservables
 
 policy_vars = [3 4 5 6 7];
 
@@ -326,7 +387,7 @@ policy_vars = [3 4 5 6 7];
 
 % Produces latex for counterfactuals table
 create_table_unobs_obs(NAMES_aux_sorted, CIs, CIs_sum)
-%% 13) Bootstrapped Counterfactuals for Top 10 largest Agencies: Observables and Unobservables
+%% 14) Bootstrapped Counterfactuals for Top 10 largest Agencies: Observables and Unobservables
 
 policy_vars = [3 4 5 6 7];
 
@@ -340,7 +401,7 @@ policy_vars = [3 4 5 6 7];
 
 % Produces latex for counterfactuals table
 bootstrap_create_table_unobs_obs(NAMES_aux_sorted, CIs, CIs_sum)
-%% 14) Counterfactuals by regions
+%% 15) Counterfactuals by regions
 
 %This section requires the creation of artificial regional LEAs
 
@@ -378,6 +439,6 @@ display(CIs_synthetic)
 
 display(CIs_synthetic_sum)  
 
-%% 15) Assets
+%% 16) Assets
 
 create_assets(Y,CIs,CIs_sum,NAIVE_counter,RESULTS)
