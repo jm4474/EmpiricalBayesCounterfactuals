@@ -52,7 +52,7 @@ iv) DATA & MAIN FILE OVERVIEW
 
 This folder contains the “Master_Script.m” Matlab script, which collects different Matlab functions that are used to estimate the conditional mean function of a Poisson regression model estimated at counterfactual values of unobserved and observed covariates. The script also replicates Tables 1-7 in the paper.  
 
-NOTE: To generate Tables 8-11, include “ASSAULTS_TOTAL” (multiplying by 10, and dividing by “OFFICERS) from Agency_Data_MPV_LEOKA_OKLE_CENSUS_PLUS.xlsx in section 1.
+NOTE: To generate Tables 8-11, include “ASSAULTS_TOTAL” (multiplying by 10, and dividing by “OFFICERS") from Agency_Data_MPV_LEOKA_OKLE_CENSUS_PLUS.xlsx in section 1.
 
 * 2functions
 
