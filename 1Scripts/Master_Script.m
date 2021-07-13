@@ -137,8 +137,7 @@ Z(:,8)                 = 1e-6*LAND_AREA(:,1)./POP(:,1);
 outcome   = {'HOMICIDES'};
 
 time_variant_variables ...
-          = {'Murder per 100k pop.'
-           %,'Assaults per 10 Officers'
+          = {'Murder per 100k pop.'           
           };
          
 time_invariant_variables ...
@@ -237,72 +236,24 @@ T_results_invariant_raw.Properties.VariableNames{3} ...
 
 L  = size(Z,2);
 
-% display(T_results_invariant_raw)
+display(T_results_invariant_raw)
 
 %Produces latex for coefficients table
 create_coefficient_table(RESULTS, K, L)
 
-%% 7) Display results: Percentages
+%% 7) Bootstrap of Beta and Gamma
+% This section takes approximately 15 minutes in a MacBook Pro (Retina, 15-inch, Early 2013)
+% (running on MacOs Catalina)
 
-K                      = size(X,3);
-
-T_results_variant ...
-    = table(RESULTS.time_varying_covs',...
-            100*(exp(RESULTS.betahat)-1),...
-            100*abs(exp(RESULTS.betahat)).*RESULTS.se_betahat(1:K));
-        
-T_results_variant.Properties.VariableNames{1} ...
-    = 'Time_Varying_Covariates';
-
-T_results_variant.Properties.VariableNames{2} ...
-    = 'Estimated_effect';
-
-T_results_variant.Properties.VariableNames{3} ...
-    = 'Standard_errors';
-
-display(T_results_variant)
-
-% Percent Effect of changing population 100x%
-
- x= .1; 
-
-T_results_invariant ...
-     = table(RESULTS.time_invariant_covs(1)',...
-             100*((1+x).^(RESULTS.gammahat(2))-1),...
-             abs(100*log(1+x).*exp(log(1+x).*RESULTS.gammahat(2))) ...
-             .*RESULTS.se_gammahat(1)); 
-        
-% Percent Effect of changing covariates in one unit
-        
-T_results_invariant ....
-    = [T_results_invariant; table(RESULTS.time_invariant_covs(2:end)',...
-            100*(exp(RESULTS.gammahat(3:end))-1),...
-            100*exp(RESULTS.gammahat(3:end)) ...
-            .*RESULTS.se_gammahat(2:end))];   
-        
-        
-T_results_invariant.Properties.VariableNames{1} ...
-    = 'Time_Invariant_Covariates';
-
-T_results_invariant.Properties.VariableNames{2} ...
-    = 'Estimated_effect';
-
-%(10% for pop and crime, and 1 more off per pop)
-
-T_results_invariant.Properties.VariableNames{3} ...
-    = 'Standard_errors';  
-
-display(T_results_invariant)
-
-%% 8) Bootstrap of Beta and Gamma
 
 nboot = 1000;
+
 alpha = .1;
 
 [RESULTS_boot] = efron_bootstrap_se(nboot, alpha, Y(~aux,:),X(~aux,:,:),Z(~aux,:),time_variant_variables,time_invariant_variables);                              
 
 bootstrap_create_coefficient_table(RESULTS_boot, K, L)
-%% 9) Counterfactuals for Top 10 largest Agencies: Unobservables
+%% 8) Counterfactuals for Top 10 largest Agencies: Unobservables
 
 NAMES_aux = NAMES(aux);
  
