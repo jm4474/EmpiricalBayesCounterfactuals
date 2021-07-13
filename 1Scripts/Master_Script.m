@@ -278,57 +278,60 @@ end
 
 confidence_level = .90;
       
-[NAMES_aux_sorted, REGION_aux_sorted, CIs,CIs_sum,NAIVE_COUNTER,post_mean_hat_sorted] = master_counter(NAMES_aux,REGION_aux,Y_aux,X_aux,Z_aux,RESULTS,confidence_level);  
+[NAMES_aux_sorted, ~, CIs,CIs_sum,NAIVE_COUNTER,~] = master_counter(NAMES_aux,REGION_aux,Y_aux,X_aux,Z_aux,RESULTS,confidence_level);  
                                           
-% display(NAMES_aux_sorted)
-%
-% display(CIs)
-%
-% display(CIs_sum) 
+display(NAMES_aux_sorted)
+
+display(CIs)
+
+display(CIs_sum) 
 
 % Produces latex for counterfactuals table
 create_table_unobs(NAMES_aux_sorted,CIs,CIs_sum)
 
-%% 10) Bootstrapped Counterfactuals for Top 10 largest Agencies: Unobservables
+%% 9) Bootstrapped Counterfactuals for Top 10 largest Agencies: Unobservables
 
-[NAMES_aux_sorted, REGION_aux_sorted, CIs,CIs_sum, post_mean_hat_sorted] = bootstrap_master_counter(nboot,NAMES_aux,REGION_aux,Y_aux,X_aux,Z_aux,RESULTS,RESULTS_boot,confidence_level);
+[NAMES_aux_sorted, ~, CIs,CIs_sum, ~] = bootstrap_master_counter(nboot,NAMES_aux,REGION_aux,Y_aux,X_aux,Z_aux,RESULTS,RESULTS_boot,confidence_level);
 
 bootstrap_create_table_unobs(NAMES_aux_sorted,CIs,CIs_sum)
 
-%% 11) Counterfactuals for Top 10 largest Agencies: Observables
+%% 10) Counterfactuals for Top 10 largest Agencies: Observables
 
 policy_vars = [3 4 5 6 7];
+%Officersper1K, gundeathrate, share of poverty, Garner, LEOBR
 
 [NAMES_aux_sorted,...
-REGION_aux_sorted,...
+~,...
 CIs,...
 CIs_sum,...
 NAIVE_counter,...
-alpha_hat_sorted] = master_counter_observables(NAMES_aux,...
+~] = master_counter_observables(NAMES_aux,...
                                 REGION_aux,...
                                 Y_aux,X_aux,Z_aux,...
                                 policy_vars,...
                                 RESULTS,...
                                 confidence_level);  
                                           
-% display(NAMES_aux_sorted)
-% 
-% display(CIs)
-%  
-% display(CIs_sum) 
+display(NAMES_aux_sorted)
+ 
+display(CIs)
+  
+display(CIs_sum) 
 
-% Produces latex for counterfactuals table
+%Produces latex for counterfactuals table
 create_table_obs(NAMES_aux_sorted, CIs, CIs_sum)
-%% 12) Bootstrapped Counterfactuals for Top 10 largest Agencies: Observables
 
-[NAMES_aux_sorted, REGION_aux_sorted, CIs,CIs_sum, post_mean_hat_sorted] = bootstrap_master_counter_observables(policy_vars,nboot,NAMES_aux,REGION_aux,Y_aux,X_aux,Z_aux,RESULTS,RESULTS_boot,confidence_level);
+%% 11) Bootstrapped Counterfactuals for Top 10 largest Agencies: Observables
+
+[NAMES_aux_sorted, ~, CIs,CIs_sum, post_mean_hat_sorted] = bootstrap_master_counter_observables(policy_vars,nboot,NAMES_aux,REGION_aux,Y_aux,X_aux,Z_aux,RESULTS,RESULTS_boot,confidence_level);
 
 bootstrap_create_table_obs(NAMES_aux_sorted,CIs,CIs_sum)
-%% 13) Counterfactuals for Top 10 largest Agencies: Observables and Unobservables
+
+%% 12) Counterfactuals for Top 10 largest Agencies: Observables and Unobservables
 
 policy_vars = [3 4 5 6 7];
 
-[NAMES_aux_sorted, REGION_aux_sorted,CIs,CIs_sum,alpha_hat_sorted] = master_counter_unobs_obs(NAMES_aux,...
+[NAMES_aux_sorted, ~,CIs,CIs_sum,~] = master_counter_unobs_obs(NAMES_aux,...
                                 REGION_aux,...
                                 Y_aux,X_aux,Z_aux,...
                                 policy_vars,...
@@ -337,7 +340,7 @@ policy_vars = [3 4 5 6 7];
 
 % Produces latex for counterfactuals table
 create_table_unobs_obs(NAMES_aux_sorted, CIs, CIs_sum)
-%% 14) Bootstrapped Counterfactuals for Top 10 largest Agencies: Observables and Unobservables
+%% 13) Bootstrapped Counterfactuals for Top 10 largest Agencies: Observables and Unobservables
 
 policy_vars = [3 4 5 6 7];
 
@@ -351,43 +354,7 @@ policy_vars = [3 4 5 6 7];
 
 % Produces latex for counterfactuals table
 bootstrap_create_table_unobs_obs(NAMES_aux_sorted, CIs, CIs_sum)
-%% 15) Counterfactuals by regions
 
-%This section requires the creation of artificial regional LEAs
-
-NAMES_synthetic = unique(cellstr(string(REGION)));
-
-load('../LEA_artificial_regional_agencies.mat')
-
-if dummy_region == false 
-    
-Z_region ...
-             = [ones(size(Z_region,1),1),Z_region]; %includes a constant
-
-else
-
-Z_region     = create_dummy_region({'EAST';'MIDWEST';'SOUTH';'WEST'},...
-                                   {'EAST';'MIDWEST';'SOUTH';'WEST'},...
-                                   Z_region);  
-Z_region ...
-          = [ones(size(Z_region,1),1),Z_region]; %includes a constant and dummies
-end
-
-[NAMES_synthetic_aux_sorted,...
-REGION_synthetic_aux_sorted,...
-CIs_synthetic,...
-CIs_synthetic_sum,...
-NAIVE_counter_synthtetic,...
-alpha_hat_synthetic_sorted] = master_counter(NAMES_synthetic,...
-                                NAMES_synthetic,...
-                                Y_region,X_region,Z_region,...
-                                RESULTS,...
-                                confidence_level);  
-display(NAMES_synthetic_aux_sorted)
-
-display(CIs_synthetic)
-
-display(CIs_synthetic_sum)  
 
 %% 16) Assets
 
