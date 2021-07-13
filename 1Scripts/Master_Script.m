@@ -61,6 +61,8 @@ addpath(strcat(path_root,'2functions'))
 clear variables                                        
                                         
 save(strcat(path_root,'4Output/mat/LEA_data_array.mat'));
+
+clear
 %% 2) Adjust the scale of main variables
 
 path_root = '../';
