@@ -242,7 +242,7 @@ display(T_results_invariant_raw)
 create_coefficient_table(RESULTS, K, L)
 
 %% 7) Bootstrap of Beta and Gamma
-% This section takes approximately 15 minutes in a MacBook Pro (Retina, 15-inch, Early 2013)
+% This section takes approximately 20 minutes in a MacBook Pro (Retina, 15-inch, Early 2013)
 % (running on MacOs Catalina)
 
 
