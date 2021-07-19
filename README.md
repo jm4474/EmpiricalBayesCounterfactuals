@@ -18,7 +18,7 @@ The folders
 
 4Output
 
-contain Matlab scripts, Matlab functions, xlsx files, MAT files, txt files and LaTeX files to generate the figures and tables reported in the paper “Empirical Bayes Counterfactuals for Police Homicides in Poisson Regression” by José Luis Montiel Olea, Brendan O’Flaherty, and Rajiv Sethi.  
+contain Matlab scripts, Matlab functions, xlsx files, MAT files, and LaTeX files to generate the figures and tables reported in the paper “Empirical Bayes Counterfactuals for Police Homicides in Poisson Regression” by José Luis Montiel Olea, Brendan O’Flaherty, and Rajiv Sethi.  
 
 --------------------------
 
