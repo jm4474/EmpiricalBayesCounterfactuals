@@ -22,7 +22,11 @@ for i = 1:K
     fprintf('%s\n', T)
 end 
 for i = 1:L;
-    T = strcat(RESULTS.time_invariant_covs(i), ' & ',string(round(RESULTS.gammahat(i+1), 3)),'&', string(round(RESULTS.se_gammahat(i), 3)), '\\');
+    if round(RESULTS.gammahat(i+1),3) ~= 0
+        T = strcat(RESULTS.time_invariant_covs(i), ' & ',string(round(RESULTS.gammahat(i+1),3)),'&', string(round(RESULTS.se_gammahat(i),3)), '\\');
+    else
+        T = strcat(RESULTS.time_invariant_covs(i), ' & ',string(RESULTS.gammahat(i+1)),'&', string(RESULTS.se_gammahat(i)), '\\');
+    end
     fprintf('%s\n', T)
 end 
 fprintf('\\hline \\end{tabular} \\end{table}')

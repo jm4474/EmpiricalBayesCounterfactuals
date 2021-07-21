@@ -132,26 +132,26 @@ Z(:,6)                 = GARNER;
 
 Z(:,7)                 = LEOBR;
 
-Z(:,8)                 = 1e-6*LAND_AREA(:,1)./POP(:,1);
+Z(:,8)                 = LAND_AREA(:,1)./POP(:,1);
 
 % Store variables
 
 outcome   = {'HOMICIDES'};
 
 time_variant_variables ...
-          = {'Murder per 100k pop.'        
-%           'Assaults per 10 Officers'
+          = {'Murder per pop. (in hundred thousands)'       
+%           'Assaults per Officer (in tens)'
           };
          
 time_invariant_variables ...
           = {'Log of Avg. pop. (in millions)',...             
-             'Officers per 1k pop.',...
+             'Officers per pop. (in thousands)',...
              'Gun Death Rate (\%)',...
              'Share in Poverty (\%)',...
              'Share Black (\%)',...
              'Garner',...
              'LEOBR',...
-             'Land Area per 1m pop.'
+             'Land Area (sq. km.) per pop. (in millions)'
               };
 
 clearvars -except NAMES ORI9 REGION COUNTY STATE Y X Z T ...
@@ -396,4 +396,4 @@ bootstrap_create_table_unobs_obs(NAMES_aux_sorted, CIs, CIs_sum)
 %Generates different values that appear in the paper (number of agencies,
 %number of homicides, etc).
 
-create_assets(Y,CIs_unobs,CIs_sum_unobs,CIs_obs,CIs_sum_obs,CIs_unob_obs,CIs_sum_unobs_obs,RESULTS)
+create_assets(Y,CIs_unobs,CIs_sum_unobs,CIs_obs,CIs_sum_obs,CIs_unobs_obs,CIs_sum_unobs_obs,RESULTS)
