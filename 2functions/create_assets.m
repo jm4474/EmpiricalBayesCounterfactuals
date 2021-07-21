@@ -15,6 +15,11 @@ function create_assets(Y,CIs_unobs,CIs_sum_unobs,CIs_obs,CIs_sum_obs,CIs_unob_ob
 % 
 %% 
 
+dfile = '../4Output/tex/Assets.tex';
+if exist(dfile,'file'); delete(dfile); end 
+diary(dfile)
+diary on 
+
 %finding the number of agencies with positive homicides
 array_homicides = sum(Y');
 r = 0;
