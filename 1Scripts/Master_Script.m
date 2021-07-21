@@ -291,6 +291,8 @@ display(CIs)
 
 display(CIs_sum) 
 
+CIs_unobs = CIs; CIs_sum_unobs = CIs_sum; 
+
 % Produces latex for counterfactuals table
 create_table_unobs(NAMES_aux_sorted,CIs,CIs_sum)
 
@@ -340,6 +342,8 @@ display(CIs)
   
 display(CIs_sum) 
 
+CIs_obs = CIs; CIs_sum_obs = CIs_sum;
+
 bootstrap_create_table_obs(NAMES_aux_sorted,CIs,CIs_sum)
 
 %% 12) Counterfactuals for Top 10 largest Agencies: Observables and Unobservables
@@ -359,7 +363,9 @@ display(NAMES_aux_sorted)
 
 display(CIs)
   
-display(CIs_sum)                             
+display(CIs_sum)      
+
+CIs_unobs_obs = CIs; CIs_sum_unobs_obs = CIs_sum;
                             
 %Produces latex for counterfactuals table
 create_table_unobs_obs(NAMES_aux_sorted, CIs, CIs_sum)
@@ -390,4 +396,4 @@ bootstrap_create_table_unobs_obs(NAMES_aux_sorted, CIs, CIs_sum)
 %Generates different values that appear in the paper (number of agencies,
 %number of homicides, etc).
 
-create_assets(Y,CIs,CIs_sum,NAIVE_COUNTER,RESULTS)
+create_assets(Y,CIs_unobs,CIs_sum_unobs,CIs_obs,CIs_sum_obs,CIs_unob_obs,CIs_sum_unobs_obs,RESULTS)
