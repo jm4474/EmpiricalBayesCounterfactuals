@@ -40,7 +40,7 @@ iii) RECOMMENDED CITATION
 
 When using this code please cite:
 
-“Empirical Bayes Counterfactuals for Police Homicides in Poisson Regression”, Montiel Olea, J.L., O’Flaherty, B., and Sethi, R., 2021.
+“Empirical Bayes Counterfactuals in Poisson Regression with an Application to Police Use of Deadly Force”, Montiel Olea, J.L., O’Flaherty, B., and Sethi, R., 2021.
 
 ---------------------
 
