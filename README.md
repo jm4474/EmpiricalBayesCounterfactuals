@@ -60,7 +60,7 @@ This folder contains the function called in “Master_Script.m” in the 1Script
 
 * 3Data 
 
-This folder contains the xlsx file “Agency_Data_MPV_LEOKA_OKLE_CENSUS_PLUS.xlsx”. The dataset contains homicide data and observed covariates for American police departments starting in 2013 and ending in 2018. 
+This folder contains the xlsx file “PD_Data_MPV_LEOKA_OKLE_CENSUS_PLUS.xlsx”. The dataset contains homicide data and observed covariates for American police departments starting in 2013 and ending in 2018. 
 
 * 4Output
 
